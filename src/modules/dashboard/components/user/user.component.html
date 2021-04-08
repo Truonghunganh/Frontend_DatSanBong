@@ -1,0 +1,156 @@
+<sb-card>
+    <div class="card-header border1">
+        
+        <a class="border1"> thông tin cá nhân của người dùng
+            <button class="float-right border1" (click)="editUser()">thay đổi thông tin cá nhân</button>
+        </a>
+
+    </div>
+    <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
+        <div *ngIf="checklistdansan then display  else loading"></div>
+        <ng-template #display>
+            <div class="row">
+                <table class="table table-striped " style="width:100%">
+                    <tbody style="color:lightcyan;">
+                        <tr>
+                            <td>Tên</td>
+                            <td> <strong>{{ user.name}}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại</td>
+                            <td><strong>{{ user.phone}}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Gmail</td>
+                            <td><strong>{{ user.gmail }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td><strong>{{ user.address}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </ng-template>
+
+        <ng-template #loading>
+            <div class="text-center">
+                <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</sb-card>
+<sb-card>
+    <div class="card-header border1">
+        <a> Lịch đặt sân của người dùng (mấy ngày tới)</a>
+    </div>
+    <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
+        <div *ngIf="checklistdansan; then display1 ; else loading1"></div>
+        <ng-template #display1>
+            <div *ngIf="ListDatSanByIduservaonhungngaytoi.length!=0">
+                <table class="table-striped" border="1">
+                    <thead class="card-header" style="background-color:darkgreen">
+                        <tr>
+                            <td>STT</td>
+                            <td>Tên quán</td>
+                            <td>Địa chỉ quán</td>
+                            <td>Số điện thoại quán</td>
+                            <td>Tên sân</td>
+                            <td>Số người trên sân</td>
+                            <td>Thời gian đặt sân</td>
+                            <td>Số tiền</td>
+                            <td>Trạng thái</td>
+                            <td>Hủy đặt sân</td>
+                            <td>thông báo</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let datsan of datsansnew ; index as i">
+                            <td class="td" style="background-color:darkgreen">
+                                {{(page-1)*10+i+1}}
+                            </td>
+                            <td class="td">
+                                {{datsan.nameQuan}}
+                            </td>
+                
+                            <td class="td">
+                                {{datsan.addressQuan}}
+                            </td>
+                            <td class="td">
+                                {{datsan.phoneQuan}}
+                            </td>
+                            <td class="td">
+                                {{datsan.nameSan}}
+                            </td>
+                            <td class="td">
+                                {{datsan.numberpeople}}
+                            </td>
+                            <td class="td">
+                                {{datsan.time}}
+                            </td>
+                            <td class="td">
+                                {{datsan.price}}
+                            </td>
+                            <td class="td">
+                                <div class="custom-control custom-switch">
+                                    <input type="checkbox" class="custom-control-input" [checked]="datsan.xacnhan">
+                                    <label class="custom-control-label" type='hidden' for="status"></label>
+                                </div>
+                
+                            </td>
+                            <td class="td">
+                                <fa-icon style="color:darkgreen" (click)="deleteDatSan(datsan)" [icon]='["fas","trash"]'
+                                    class='fas fa-trash fa-2x'></fa-icon>
+                            </td>
+                            <td>
+                                <div *ngIf="!datsan.trangthaisan">sân này đang ngừng hoạt động xin bạn chọn sân khác</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="ListDatSanByIduservaonhungngaytoi.length==0" style="text-align: center;">
+                <strong>Thông báo :</strong> Bạn chưa đặt sân vào ngày tới
+            </div>
+        </ng-template>
+
+        <ng-template #loading1>
+            <div class="text-center">
+                <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </ng-template>
+        <nav aria-label="...">
+            <ul class="pagination justify-content-center">
+                <div class="row" style="color:forestgreen">
+                    <input type="button" class="btn btn-success" (click)="Previous()" value="Previous">
+                  
+                    <div *ngFor="let vitri of mangtrang; index as i">
+                        <div *ngIf="page==i-2">
+                            <a class="page-link">... </a>
+                        </div>
+                        <div *ngIf="page>i-2 && page<i+4">
+                            <li *ngIf="vitri" class="page-item active">
+                                <a class="page-link" (click)="chontrang(i+1)">{{i+1}} </a>
+                            </li>
+                            <li *ngIf="!vitri" class="page-item">
+                                <a class="page-link" (click)="chontrang(i+1)">{{i+1}} </a>
+                            </li>
+                        </div>
+                        <div *ngIf="page==i+4">
+                            <a class="page-link">... </a>
+                        </div>
+                    </div>
+                    <input type="button" class="btn border1" (click)="Next()" value="Next">
+                </div>
+            </ul>
+        </nav>
+        <div style="text-align: center;">
+            <strong>Lưu ý :</strong> trạng thái bận : là chủ quán đã duyệt
+        </div>
+    </div>
+</sb-card>

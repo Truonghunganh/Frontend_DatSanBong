@@ -1,0 +1,107 @@
+<sb-card>
+    <div class="card-header">
+        <h1 style="color:blue"> 1. thông tin cá nhân của người dùng
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 float-right">
+                <input type="button" class="btn btn-primary " routerLink="/dashboard/editinnkeeper" value="chỉnh sữa thông tin" /> 
+            </form>
+        </h1>
+    </div>
+    <div class="card-body">
+        <div *ngIf="checkinnkeeper ; then display ; else loading"></div>
+        <ng-template #display>
+            <div class="row">
+                <table class="table table-striped " style="width:100%">
+                    <tbody>
+                        <tr>
+                            <td>Họ và tên</td>
+                            <td> <strong>{{ innkeeper.name}}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Số Điện thoại</td>
+                            <td><strong>{{ innkeeper.phone}}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Gmail</td>
+                            <td><strong>{{ innkeeper.gmail }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ</td>
+                            <td><strong>{{ innkeeper.address}}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </ng-template>
+
+        <ng-template #loading>
+            <div class="text-center">
+                <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</sb-card>
+
+
+<sb-card>
+    <div class="card-header">
+        <h1 style="color:red"> 2. các quán chưa được phe duyệt của chủ quán
+        </h1>
+    </div>
+    <div class="card-body">
+        <div *ngIf="checklistquanschuapheduyet ; then display1 ; else loading1"></div>
+        <ng-template #display1>
+            <div class="row">
+                <table  border="1"  style="width:100%">
+                    <thead >
+                        <tr class="card-header">
+                            <td>STT</td>
+                            <td>Name</td>
+                            <td>Address</td>
+                            <td>Phone</td>
+                            <td>Ngày giờ đăng kí</td>
+                            <td>kinh độ</td>
+                            <td>Vĩ độ</td>
+                            <td>Image</td>
+                            <td>Actions</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let quan of listquanschuapheduyet ; index as i">
+                            <td>{{i+1}}</td>
+                            <td>{{quan.name}}</td>
+                            <td>{{quan.address}}</td>
+                            <td>{{quan.phone}}</td>
+                            <td>{{quan.Create_time}}</td>
+                            <td>{{quan.kinhdo}}</td>
+                            <td>{{quan.vido}}</td>
+                            <td>    
+                                <div *ngIf="quan.image">
+                                    <img style="width: 5opx; height: 50px;" src="{{url+'/'+quan.image}}">
+                                </div>
+                                <div *ngIf="!quan.image">
+                                    <img style="width: 50px; height: 50px;" class="profile_img" src="../../../assets/img/avatar.jpg">
+                                </div>
+                            </td>
+                            <td>
+                                <fa-icon routerLink="/dashboard/editQuanByTokenInnkeeper/{{quan.id}}" class='fas fa-trash fa-2x' [icon]='["fas","edit"]'></fa-icon>
+                                <fa-icon (click)="deleteQuan(quan)" [icon]='["fas","trash"]' class='fas fa-trash fa-2x'></fa-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </ng-template>
+
+        <ng-template #loading1>
+            <div class="text-center">
+                <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</sb-card>

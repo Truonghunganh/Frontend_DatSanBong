@@ -1,0 +1,300 @@
+<sb-card>
+    <div class="card-header border1">
+        <h4 style="text-align: center;"> Thông tin của Quán</h4>
+    </div>
+    <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
+        <div *ngIf="chekquanvasan; then display2; else loading2"></div>
+        <ng-template #display2>
+            <div class="text-center">
+                <table style="width: 100%;">
+                    <tr>
+                        <td  style="text-align: center;" rowspan="4">
+                            <div *ngIf="quan.image">
+                                <img style="width: 150px; " src="{{url+'/'+quan.image}}">
+                            </div>
+                            <div *ngIf="!quan.image">
+                                <img class="profile_img" src="../../../assets/img/avatar.jpg">
+                            </div>
+                        </td>
+                        <td style="text-align: center;"> <strong>{{ quan.name }}</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;"><strong>{{ quan.phone}}</strong></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;">
+                            <strong>{{ quan.address}}</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center;" *ngIf="!nutReview">
+                            <img *ngIf="mangreviewquan[0]" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                            <img *ngIf="!mangreviewquan[0]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <img *ngIf="mangreviewquan[1]" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                            <img *ngIf="!mangreviewquan[1]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <img *ngIf="mangreviewquan[2]" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                            <img *ngIf="!mangreviewquan[2]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <img *ngIf="mangreviewquan[3]" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                            <img *ngIf="!mangreviewquan[3]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <img *ngIf="mangreviewquan[4]" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                            <img *ngIf="!mangreviewquan[4]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                        </td>
+                        <td style="text-align: center;" *ngIf="nutReview">
+                            <img *ngIf="mangreviewuser[0]" (click)="chonreview(1)" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                            <img *ngIf="!mangreviewuser[0]" (click)="chonreview(1)" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <img *ngIf="mangreviewuser[1]" (click)="chonreview(2)" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                            <img *ngIf="!mangreviewuser[1]" (click)="chonreview(2)" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <img *ngIf="mangreviewuser[2]" (click)="chonreview(3)" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                            <img *ngIf="!mangreviewuser[2]" (click)="chonreview(3)" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <img *ngIf="mangreviewuser[3]" (click)="chonreview(4)" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                            <img *ngIf="!mangreviewuser[3]" (click)="chonreview(4)" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <img *ngIf="mangreviewuser[4]" (click)="chonreview(5)" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                            <img *ngIf="!mangreviewuser[4]" (click)="chonreview(5)" src="../../../assets/img/reviews/0-star.svg" class="star">
+                        </td>
+                        <input type="button" class="btn btn-success float-right" (click)="updatereview()" value="{{strNutReview}}" />
+                    </tr>
+                </table>
+            </div>
+        </ng-template>
+        <ng-template #loading2>
+            <div class="text-center">
+                <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</sb-card>
+
+<sb-card>
+    <div class="card-header border1">
+        <h4 >Tình trạng đặt sân</h4>
+        <div class="form-group">
+            <div>
+                Hãy chọn ngày đặt sân :
+                <input type="date" [(ngModel)]="today" (change)="chonngay($event);">
+            </div>
+        </div>
+    </div>
+    <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
+        <div *ngIf="checkdatsans then display; else loading"></div>
+        <ng-template #display>
+            <table class="table-striped table-dark" style="width:100%" border="1">
+                <thead class="border1">
+                    <tr>
+                        <td>tên sân</td>
+                        <td>5h</td>
+                        <td>6h</td>
+                        <td>7h</td>
+                        <td>8h</td>
+                        <td>9h</td>
+                        <td>10h</td>
+                        <td>11h</td>
+                        <td>12h</td>
+                        <td>13h</td>
+                        <td>14h</td>
+                        <td>15h</td>
+                        <td>16h</td>
+                        <td>17h</td>
+                        <td>18h</td>
+                        <td>19h</td>
+                        <td>20h</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let san of sansTT ;index as i">
+                        <td class="border1">
+                            {{san.name}}
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][0]"
+                                (click)="datsan(0,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][1]"
+                                (click)="datsan(1,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][2]"
+                                (click)="datsan(2,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][3]"
+                                (click)="datsan(3,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][4]"
+                                (click)="datsan(4,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][5]"
+                                (click)="datsan(5,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][6]"
+                                (click)="datsan(6,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][7]"
+                                (click)="datsan(7,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][8]"
+                                (click)="datsan(8,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][9]"
+                                (click)="datsan(9,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][10]"
+                                (click)="datsan(10,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][11]"
+                                (click)="datsan(11,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][12]"
+                                (click)="datsan(12,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][13]"
+                                (click)="datsan(13,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][14]"
+                                (click)="datsan(14,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+                        <td style="background-color: #41c04d;">
+                            <button *ngIf="!mangDatsan[i][15]"
+                                (click)="datsan(15,san.id,san.priceperhour,san.name,san.numberpeople)"
+                                class="border1">đặt</button>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </ng-template>
+        <ng-template #loading>
+            <div class="text-center">
+                <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</sb-card>
+
+<sb-card>
+    <div class="card-header border1">
+        <h4 >Danh sách các sân bóng</h4>
+    </div>
+    <div class="card-body">
+        <div *ngIf="chekquanvasan; then display1; else loading1"></div>
+        <ng-template #display1>
+            <div class="row">
+                <div class="col-sm-4" *ngFor="let san of sansTT ;index as i">
+                    <div class="card">
+                        <div class="card-header border1">
+                            <h2>{{i+1}}</h2>
+                        </div>
+                        <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
+                            <table class="table table-striped ">
+                                <tbody class="border1">
+                                    <tr>
+                                        <td>tên sân</td>
+                                        <td> <strong>{{ san.name }}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>số người trong 1 phe</td>
+                                        <td><strong>{{ san.numberpeople}}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>số tiền trong 1 giờ</td>
+                                        <td><strong>{{ san.priceperhour }}</strong></td>
+                                    </tr>
+                        
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template #loading1>
+            <div class="text-center">
+                <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</sb-card>
+<input class="form-control btn btn-success" (click)="xembinhluan()" type="button" value="{{hienthibinhluan}}">
+<div *ngIf="checkhienthibinhluan">
+    <sb-card>
+        <div class="card-header" style="background-color:#41c04d">
+            <div class="input-group">
+                <textarea class="form-control"name ="binhluan" [(ngModel)]="binhluan" aria-label="With textarea"></textarea>
+                <button class="border1" (click)="binhluancuaban()" >Bình luận</button>
+            </div>
+
+        </div>
+        <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
+            <div *ngIf="checkcomments; then display3; else loading3"></div>
+            <ng-template #display3>
+                <div class="row">
+                    <div class="card-body" >
+                        <div class="form-group row" *ngFor="let comment of comments ;index as i">
+                            <label class="col-lg-1 col-form-label form-control-label">
+                                <img class="card-img-top" style="display: block;" src="../../../assets/img/avatar.jpg" alt="Card image cap">
+                            </label>
+                            <div class="col-lg-11" >
+                                <h6>
+                                    <strong>{{comment.tenUser}}</strong>
+                                    {{comment.Create_time}}
+                                    <strong *ngIf="comment.quyenUpdate">
+                                        <button class="border1 float-right" (click)="xoabinhluan(comment.id)">Xóa</button>
+                                        <button class="border1 float-right" (click)="chon(i)">Chỉnh sữa</button>
+                                    </strong>
+                                </h6>
+                                <div class="input-group" *ngIf="!mangBL[i]">
+                                    {{comment.binhluan}}
+                                    
+                                </div>
+                                <div class="input-group" *ngIf="mangBL[i]">
+                                    <textarea class="form-control" value="{{comment.binhluan}}" #BL aria-label="With textarea"></textarea>
+                                    <span class="btn btn-danger" (click)="chinhsuaBL(i, comment.id,BL.value)">chỉnh sữa</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template #loading3>
+                <div class="text-center">
+                    <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+            </ng-template>
+        </div>
+    </sb-card>
+
+</div>

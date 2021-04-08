@@ -1,0 +1,225 @@
+<sb-card>
+    <div class="card-header">
+        <h1 style="color:blue; text-align: center"> Doanh thu của quán</h1>
+    </div>
+    <div class="card-body">
+        <sb-card>
+            <div class="card-header">
+                <div style="text-align: center;">
+                    <h1 style="color:chartreuse">Thông tin của Quán
+                    </h1>
+                </div>
+            </div>
+            <div class="card-body">
+                <div *ngIf="checkquan; then display2; else loading2"></div>
+                <ng-template #display2>
+                    <div class="text-center">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="text-align: center;width: 50%;" rowspan="4">
+                                    <div *ngIf="quan.image">
+                                        <img style="width: 50%; " src="{{url+'/'+quan.image}}">
+                                    </div>
+                                    <div *ngIf="!quan.image">
+                                        <img class="profile_img" src="../../../assets/img/avatar.jpg">
+                                    </div>
+                                </td>
+                                <td style="text-align: center;"> <strong>{{ quan.name }}</strong></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;"><strong>{{ quan.phone}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">
+                                    <a href="{{quan.linkaddress}}">
+                                        <strong>{{ quan.address}}</strong>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">
+                                    <img *ngIf="mangreviewquan[0]" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                                    <img *ngIf="!mangreviewquan[0]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                                    <img *ngIf="mangreviewquan[1]" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                                    <img *ngIf="!mangreviewquan[1]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                                    <img *ngIf="mangreviewquan[2]" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                                    <img *ngIf="!mangreviewquan[2]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                                    <img *ngIf="mangreviewquan[3]" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                                    <img *ngIf="!mangreviewquan[3]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                                    <img *ngIf="mangreviewquan[4]" src="../../../assets/img/reviews/Star_full.svg" class="star">
+                                    <img *ngIf="!mangreviewquan[4]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </ng-template>
+                <ng-template #loading2>
+                    <div class="text-center">
+                        <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </sb-card>
+        <div *ngIf="checkchitiet">
+            <sb-card>
+                <div class="card-header">
+                    <h3 style="color:aqua; text-align: center">Chọn tháng doanh thu :
+                        <input type="month" [(ngModel)]="thang" (change)="chonthang($event);">
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div *ngIf="checkdoanhthus then display; else loading"></div>
+                    <ng-template #display>
+                        <table style="width: 100%;" border="1">
+                            <tr>
+                                <td>STT</td>
+                                <td>Doanh Thu</td>
+                                <td>ngày</td>
+                                <td>Chi tiết</td>
+                            </tr>
+                            <tr *ngFor="let doanhthu of doanhthus;index as i">
+                                <td>
+                                    {{i+1}}
+                                </td>
+                                <td>
+                                    {{doanhthu.doanhthu}}
+                                </td>
+                                <td>
+                                    {{doanhthu.time}}
+                                </td>
+                                <td>
+                                    <input type="button" class="btn btn-success " (click)="chitietdanhthu(doanhthu.id)"
+                                        value="xem chi tiết" />
+                                </td>
+                            </tr>
+                        </table>
+                        <strong>Tổng Doanh thu của tháng : </strong>{{tongdoanhthu}}
+                    </ng-template>
+                    <ng-template #loading>
+                        <div class="text-center">
+                            <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </ng-template>
+        
+                </div>
+            </sb-card>
+            <sb-card>
+                <div class="card-header">
+                    <h3 style="color:blue; text-align: center">Doanh thu của năm : <input type='number' min="2020"
+                            [(ngModel)]="year" name="year" max="2100" (change)="chonNam();">
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <sb-card>
+                        <div class="card-header">
+                            <h4>Dạng biểu đồ :{{dangBD}}
+                                <input type="button" class="btn btn-info float-right" (click)="cot()" value="Biểu đồ Cột" />
+                                <input type="button" class="btn btn-success float-right" (click)="tron()"
+                                    value="Biểu đồ tròn" />
+                                <input type="button" class="btn btn-primary float-right" (click)="duong()"
+                                    value="Biểu đồ đường" />
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <div *ngIf="checkdoanhthustheonam then display1; else loading1"></div>
+                            <ng-template #display1>
+                                <div class="chart-wrapper">
+                                    <canvas baseChart [plugins]="pieChartPlugins" [options]="pieChartOptionsBD"
+                                        [datasets]="lineChartDataBD" [labels]="lineChartLabelsBD" [colors]="lineChartColorsBD"
+                                        [chartType]="lineChartTypeBD"></canvas>
+                                </div>
+                                <strong>Tổng Doanh thu của năm {{year}}: </strong>{{tongDanhthucuuanam }}
+                            </ng-template>
+                            <ng-template #loading1>
+                                <div class="text-center">
+                                    <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;"
+                                        role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </sb-card>
+                </div>
+            </sb-card>
+        
+        </div>
+        <div *ngIf="!checkchitiet">
+            <sb-card>
+                <div class="card-header">
+                    <h3 style="color:blue; text-align: center">Chi tiết doanh thu của quán</h3>
+                </div>
+                <div class="card-body">
+                    <div *ngIf="checkdatsans ; then display ; else loading"></div>
+                    <ng-template #display>
+                        <div class="row">
+        
+                            <table class="table table-striped " style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <td>STT</td>
+                                        <td>Tên sân</td>
+                                        <td>Số người</td>
+                                        <td>Tiền</td>
+                                        <td>Tên Người đặt</td>
+                                        <td>Số điện thoại người đặt</td>
+                                        <td>giờ đặt sân</td>
+                                        <td>chủ quán xác nhận</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let datsan of datsansnew ;index as i ">
+                                        <td>{{(page-1)*10+i+1}}</td>
+                                        <td>{{datsan.san.name}}</td>
+                                        <td>{{datsan.san.numberpeople}}</td>
+                                        <td>{{datsan.price}}</td>
+                                        <td>{{datsan.user.name}}</td>
+                                        <td>{{datsan.user.phone}}</td>
+                                        <td>{{datsan.start_time}}</td>
+                                        <td>
+                                            <input type="button" class="btn btn-primary" value="đã xán nhận" />
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <strong>Tổng Doanh thu : {{tongdoanhthuchitiet}}</strong>
+                        </div>
+                    </ng-template>
+        
+                    <ng-template #loading>
+                        <div class="text-center">
+                            <div class="spinner-grow" style="width: 15rem; height: 15rem;text-align: center;" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </ng-template>
+        
+                </div>
+            </sb-card>
+        
+            <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" (click)="Previous()">Previous</a>
+                    </li>
+                    <div *ngFor="let vitri of mangtrang; index as i">
+                        <li *ngIf="vitri" class="page-item active">
+                            <a class="page-link" (click)="chontrang(i+1)">{{i+1}} </a>
+                        </li>
+                        <li *ngIf="!vitri" class="page-item">
+                            <a class="page-link" (click)="chontrang(i+1)">{{i+1}} </a>
+                        </li>
+                    </div>
+                    <li class="page-item">
+                        <a class="page-link" (click)="Next()">Next</a>
+                    </li>
+                </ul>
+            </nav>
+            <input type="button" class="form-control btn btn-primary" style="text-align: center;" (click)="OK()" value="OK" />
+        </div>
+    </div>
+</sb-card>

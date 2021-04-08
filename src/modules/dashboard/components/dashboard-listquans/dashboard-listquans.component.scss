@@ -1,0 +1,25 @@
+@import 'styles/variables.scss';
+.center {
+  margin-left: auto;
+  margin-right: auto;
+ 
+}
+.border1{
+	color:lightcyan;
+	background-color: forestgreen;
+}
+
+td{
+  text-align: center;
+}
+.star{
+  width: 2rem;
+  height: 2rem
+}
+img{
+  // display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 12rem;
+}
