@@ -61,8 +61,8 @@ export class EditQuanByTokenInnkeepeComponent implements OnInit {
                 Swal.fire({
                     icon: 'error',
                     title: data.message,
-                })
-                this.router.navigate(['/innkeeper/quans/' + id]);
+                });
+                this.router.navigate(['/innkeeper/quans']);
 
 
             }

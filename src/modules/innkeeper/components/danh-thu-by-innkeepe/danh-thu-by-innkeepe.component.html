@@ -61,10 +61,10 @@
 
         <div *ngIf="checkchitiet">
             <sb-card>
-                <div class="card-header">
-                    <h2 style="color:red; text-align:center">2. Chọn tháng doanh thu :
+                <div class="card-header border1">
+                    <h5 > Chọn tháng doanh thu :
                         <input type="month" [(ngModel)]="thang" (change)="chonthang($event);">
-                    </h2>
+                    </h5>
                 </div>
                 <div class="card-body">
                     <div *ngIf="checkdoanhthus then display; else loading"></div>
@@ -101,15 +101,15 @@
                 </div>
             </sb-card>
             <sb-card>
-                <div class="card-header">
-                    <h2>3. Doanh thu của năm : <input type='number' min="2020" [(ngModel)]="year" name="year" max="2100"
+                <div class="card-header border2">
+                    <h5> Doanh thu của năm : <input type='number' min="2020" [(ngModel)]="year" name="year" max="2100"
                             (change)="chonNam();">
-                    </h2>
-                    <h4>Dạng biểu đồ :{{dangBD}}
+                    </h5>
+                    <h6>Dạng biểu đồ :{{dangBD}}
                         <input type="button" class="btn btn-info float-right" (click)="cot()" value="Biểu đồ Cột" />
                         <input type="button" class="btn btn-success float-right" (click)="tron()" value="Biểu đồ tròn" />
                         <input type="button" class="btn btn-primary float-right" (click)="duong()" value="Biểu đồ đường" />
-                    </h4>
+                    </h6>
                 </div>
                 <div class="card-body">
                     <div *ngIf="checkdoanhthustheonam then display1; else loading1"></div>
@@ -135,8 +135,8 @@
         <div *ngIf="!checkchitiet">
             
             <sb-card>
-                <div class="card-header">
-                    <h2 style="color:blue; text-align:center">2 .Chi tiết doanh thu của quán</h2>
+                <div class="card-header border1">
+                    <h6>Chi tiết doanh thu của quán</h6>
                 </div>
                 <div class="card-body">
                     <div *ngIf="checkdatsans ; then display ; else loading"></div>

@@ -1,17 +1,17 @@
 <sb-card>
     <div class="card-header border1">
         
-        <a class="border1"> thông tin cá nhân của người dùng
+        <a> Thông tin cá nhân của người dùng
             <button class="float-right border1" (click)="editUser()">thay đổi thông tin cá nhân</button>
         </a>
 
     </div>
-    <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
+    <div class="card-body mauvachu" >
         <div *ngIf="checklistdansan then display  else loading"></div>
         <ng-template #display>
             <div class="row">
                 <table class="table table-striped " style="width:100%">
-                    <tbody style="color:lightcyan;">
+                    <tbody >
                         <tr>
                             <td>Tên</td>
                             <td> <strong>{{ user.name}}</strong></td>
@@ -44,15 +44,15 @@
     </div>
 </sb-card>
 <sb-card>
-    <div class="card-header border1">
-        <a> Lịch đặt sân của người dùng (mấy ngày tới)</a>
+    <div class="card-header border1" style="text-align: center;">
+        <a > Lịch đặt sân của người dùng (mấy ngày tới)</a>
     </div>
-    <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
+    <div class="card-body" >
         <div *ngIf="checklistdansan; then display1 ; else loading1"></div>
         <ng-template #display1>
             <div *ngIf="ListDatSanByIduservaonhungngaytoi.length!=0">
                 <table class="table-striped" border="1">
-                    <thead class="card-header" style="background-color:darkgreen">
+                    <thead class="card-header" style="background-color:darkgreen;color:springgreen">
                         <tr>
                             <td>STT</td>
                             <td>Tên quán</td>
@@ -67,7 +67,7 @@
                             <td>thông báo</td>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="background-color:#41c04d;color:lightcyan;">
                         <tr *ngFor="let datsan of datsansnew ; index as i">
                             <td class="td" style="background-color:darkgreen">
                                 {{(page-1)*10+i+1}}
@@ -102,7 +102,7 @@
                 
                             </td>
                             <td class="td">
-                                <fa-icon style="color:darkgreen" (click)="deleteDatSan(datsan)" [icon]='["fas","trash"]'
+                                <fa-icon style="color:white" (click)="deleteDatSan(datsan)" [icon]='["fas","trash"]'
                                     class='fas fa-trash fa-2x'></fa-icon>
                             </td>
                             <td>

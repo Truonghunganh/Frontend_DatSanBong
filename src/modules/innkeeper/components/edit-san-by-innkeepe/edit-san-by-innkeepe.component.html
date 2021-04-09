@@ -1,12 +1,12 @@
 <sb-card>
-    <div class="card-header">
-        <h1 style="color:blue;text-align: center;">THAY ĐỔI THÔNG TIN CỦA SÂN</h1>
+    <div class="card-header border1">
+        <h5 >THAY ĐỔI THÔNG TIN CỦA SÂN</h5>
     </div>
     <div class="card-body">
         <sb-card>
-            <div class="card-header">
-                <h1 style="color:chartreuse; text-align:center">1 .Thông tin của Quán
-                </h1>
+            <div class="card-header border1">
+                <h6>Thông tin của Quán
+                </h6>
             </div>
             <div class="card-body">
                 <div *ngIf="checkquan; then display2; else loading2"></div>
@@ -61,8 +61,8 @@
             </div>
         </sb-card>
         <sb-card>
-            <div class="card-header">
-                <h1 style="color:chartreuse; text-align:center">2. thông tin của sân</h1>
+            <div class="card-header border1">
+                <h6 >Thông tin của sân</h6>
             </div>
             <div class="card-body">
                 <div *ngIf="checksan; then display ; else loading"></div>
@@ -93,7 +93,7 @@
                             <div class="form-group row">
                                 <div class="col-lg-9 ml-auto text-right">
                                     <input type="reset" class="btn btn-outline-secondary" (click)="Cancel()" value="Hủy" />
-                                    <input type="button" class="btn btn-primary"
+                                    <input type="button" class="btn btn-success"
                                         (click)="edit(name.value,numberpeople.value,priceperhour.value)" value="Lưu thông tin" />
                                 </div>
                             </div>
