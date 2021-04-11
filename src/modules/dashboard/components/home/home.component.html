@@ -1,3 +1,6 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 
 <div class="container-fluid banner">
     <div class="row">
@@ -16,14 +19,13 @@
         </div>
     </div>
 </div>
-
-<sb-card >
+<sb-card>
     <div class="card-header" style="background-color: forestgreen;">
-        <h2 class="card-title" style="color:lightcyan">Danh sách các quán bóng đá
+        <h5 class="card-title" style="color:lightcyan">Danh sách các quán bóng đá
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 float-right"
                 (ngSubmit)="search()">
                 <div class="input-group ">
-                    <input class="form-control" name="timkiem" [(ngModel)]="timkiem" type="text"
+                    <input class="form-control" style="color:lightcyan" name="timkiem" [(ngModel)]="timkiem" type="text"
                         placeholder="Tìm kiếm....." aria-label="Search" aria-describedby="basic-addon2" />
                     <div class="input-group-append">
                         <button class="btn btn-success" type="submit">
@@ -32,14 +34,14 @@
                     </div>
                 </div>
             </form>
-        </h2>
+        </h5>
     </div>
     <div class="card-body">
         <div *ngIf="checkquans; then display; else loading"></div>
         <ng-template #display>
             <div class="card">
                 <div class="card-header" style="background-color: forestgreen;">
-                    <h3 class="card-title" style="color:lightcyan">Google Maps</h3>
+                    <h6 class="card-title" style="color:lightcyan">Google Maps</h6>
                 </div>
                 <div class="card-body">
                     <sb-google-maps-search-quan [listquans]="quans" [hienthivitricuaminh]="hienthivitricuaminh">
@@ -48,7 +50,7 @@
             </div>
             <div class="card">
                 <div class="card-header" style="background-color: forestgreen;">
-                    <h3 class="card-title" style="text-align: center; color:lightcyan">Danh sách sân bóng</h3>
+                    <h6 class="card-title" style="text-align: center; color:lightcyan">Danh sách sân bóng</h6>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -65,50 +67,33 @@
                                             src="../../../assets/img/avatar.jpg" alt="Card image cap">
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <table class="table table-striped ">
-                                        <tbody class="border1">
-                                            <tr style="height: 100px;">
-                                                <td> <strong>{{ quan.name }}</strong></td>
-                                            </tr>
-                                            <tr style="height: 100px;">
-                                                <td><strong>{{ quan.phone}}</strong></td>
-                                            </tr>
-                                            <tr style="height: 100px;">
-                                                <td><strong>{{ quan.address }}</strong></td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="card__rating" style="text-align: center;">
-                                                        <img *ngIf="mangreview[i][0]"
-                                                            src="../../../assets/img/reviews/Star_full.svg"
-                                                            class="star">
-                                                        <img *ngIf="!mangreview[i][0]"
-                                                            src="../../../assets/img/reviews/0-star.svg" class="star">
-                                                        <img *ngIf="mangreview[i][1]"
-                                                            src="../../../assets/img/reviews/Star_full.svg"
-                                                            class="star">
-                                                        <img *ngIf="!mangreview[i][1]"
-                                                            src="../../../assets/img/reviews/0-star.svg" class="star">
-                                                        <img *ngIf="mangreview[i][2]"
-                                                            src="../../../assets/img/reviews/Star_full.svg"
-                                                            class="star">
-                                                        <img *ngIf="!mangreview[i][2]"
-                                                            src="../../../assets/img/reviews/0-star.svg" class="star">
-                                                        <img *ngIf="mangreview[i][3]"
-                                                            src="../../../assets/img/reviews/Star_full.svg"
-                                                            class="star">
-                                                        <img *ngIf="!mangreview[i][3]"
-                                                            src="../../../assets/img/reviews/0-star.svg" class="star">
-                                                        <img *ngIf="mangreview[i][4]"
-                                                            src="../../../assets/img/reviews/Star_full.svg"
-                                                            class="star">
-                                                        <img *ngIf="!mangreview[i][4]"
-                                                            src="../../../assets/img/reviews/0-star.svg" class="star">
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+                                <div style="background-color:#41c04d;color:lightcyan;">
+                                    <table class="table mauchu">
+                                        <tr style="height: 30px;">
+                                            <td> <strong>{{ quan.name }}</strong></td>
+                                        </tr>
+                                        <tr style="height: 30px;">
+                                            <td><strong>{{ quan.phone}}</strong></td>
+                                        </tr>
+                                        <tr style="height: 70px;">
+                                            <td><strong>{{ quan.address }}</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div style="text-align: center;">
+                                                    <span *ngIf="mangreview[i][0]" class="fa fa-star checked"></span>
+                                                    <span *ngIf="!mangreview[i][0]" class="fa fa-star nochecked"></span>
+                                                    <span *ngIf="mangreview[i][1]" class="fa fa-star checked"></span>
+                                                    <span *ngIf="!mangreview[i][1]" class="fa fa-star nochecked"></span>
+                                                    <span *ngIf="mangreview[i][2]" class="fa fa-star checked"></span>
+                                                    <span *ngIf="!mangreview[i][2]" class="fa fa-star nochecked"></span>
+                                                    <span *ngIf="mangreview[i][3]" class="fa fa-star checked"></span>
+                                                    <span *ngIf="!mangreview[i][3]" class="fa fa-star nochecked"></span>
+                                                    <span *ngIf="mangreview[i][4]" class="fa fa-star checked"></span>
+                                                    <span *ngIf="!mangreview[i][4]" class="fa fa-star nochecked"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
                                     </table>
                                 </div>
                             </div>
@@ -126,9 +111,9 @@
         </ng-template>
         <nav aria-label="...">
             <ul class="pagination justify-content-center">
-                <div class="row">
+                <div class="row" style="color:forestgreen">
                     <input type="button" class="btn btn-success" (click)="Previous()" value="Previous">
-        
+
                     <div *ngFor="let vitri of mangtrang; index as i">
                         <div *ngIf="page==i-2">
                             <a class="page-link">... </a>

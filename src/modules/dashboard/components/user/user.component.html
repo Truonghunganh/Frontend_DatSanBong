@@ -1,4 +1,4 @@
-<sb-card>
+<!-- <sb-card>
     <div class="card-header border1">
         
         <a> Thông tin cá nhân của người dùng
@@ -42,7 +42,7 @@
             </div>
         </ng-template>
     </div>
-</sb-card>
+</sb-card> -->
 <sb-card>
     <div class="card-header border1" style="text-align: center;">
         <a > Lịch đặt sân của người dùng (mấy ngày tới)</a>
@@ -52,57 +52,57 @@
         <ng-template #display1>
             <div *ngIf="ListDatSanByIduservaonhungngaytoi.length!=0">
                 <table class="table-striped" border="1">
-                    <thead class="card-header" style="background-color:darkgreen;color:springgreen">
+                    <thead >
                         <tr>
-                            <td>STT</td>
-                            <td>Tên quán</td>
-                            <td>Địa chỉ quán</td>
-                            <td>Số điện thoại quán</td>
-                            <td>Tên sân</td>
-                            <td>Số người trên sân</td>
-                            <td>Thời gian đặt sân</td>
-                            <td>Số tiền</td>
-                            <td>Trạng thái</td>
-                            <td>Hủy đặt sân</td>
-                            <td>thông báo</td>
+                            <th>STT</th>
+                            <th>Tên quán</th>
+                            <th>Địa chỉ quán</th>
+                            <th>Số điện thoại quán</th>
+                            <th>Tên sân</th>
+                            <th>Số người trên sân</th>
+                            <th>Thời gian đặt sân</th>
+                            <th>Số tiền</th>
+                            <th>Trạng thái</th>
+                            <th>Hủy đặt sân</th>
+                            <th>thông báo</th>
                         </tr>
                     </thead>
-                    <tbody style="background-color:#41c04d;color:lightcyan;">
+                    <tbody>
                         <tr *ngFor="let datsan of datsansnew ; index as i">
-                            <td class="td" style="background-color:darkgreen">
+                            <td>
                                 {{(page-1)*10+i+1}}
                             </td>
-                            <td class="td">
+                            <td >
                                 {{datsan.nameQuan}}
                             </td>
                 
-                            <td class="td">
+                            <td >
                                 {{datsan.addressQuan}}
                             </td>
-                            <td class="td">
+                            <td >
                                 {{datsan.phoneQuan}}
                             </td>
-                            <td class="td">
+                            <td >
                                 {{datsan.nameSan}}
                             </td>
-                            <td class="td">
+                            <td >
                                 {{datsan.numberpeople}}
                             </td>
-                            <td class="td">
+                            <td >
                                 {{datsan.time}}
                             </td>
-                            <td class="td">
+                            <td >
                                 {{datsan.price}}
                             </td>
-                            <td class="td">
+                            <td >
                                 <div class="custom-control custom-switch">
                                     <input type="checkbox" class="custom-control-input" [checked]="datsan.xacnhan">
                                     <label class="custom-control-label" type='hidden' for="status"></label>
                                 </div>
                 
                             </td>
-                            <td class="td">
-                                <fa-icon style="color:white" (click)="deleteDatSan(datsan)" [icon]='["fas","trash"]'
+                            <td >
+                                <fa-icon (click)="deleteDatSan(datsan)" [icon]='["fas","trash"]'
                                     class='fas fa-trash fa-2x'></fa-icon>
                             </td>
                             <td>

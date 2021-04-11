@@ -83,3 +83,33 @@ body{
 .banner .info a:hover{
 	background: #e91e63;
 }
+.border1{
+	color:lightcyan;
+	background-color: forestgreen;
+}
+.mauvachu{
+  background-color:#41c04d;
+  color:lightcyan;
+}
+// td{
+//   text-align: center;
+// }
+.checked {
+  color: orange;
+}
+.nochecked{
+  color:white;
+}
+.mauchu{
+  color:lightcyan;
+}
+img{
+  // display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 12rem;
+}
+tr{
+  text-align: center;
+}

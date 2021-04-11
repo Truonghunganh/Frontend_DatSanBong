@@ -92,6 +92,7 @@ export class DashboardTablesanComponent implements OnInit {
         this.nutReview=!this.nutReview;
         if (this.nutReview) {
             this.strNutReview = "OK";
+            // this.changeDetectorRef.detectChanges();
 
         } else {
             this.strNutReview = "review";

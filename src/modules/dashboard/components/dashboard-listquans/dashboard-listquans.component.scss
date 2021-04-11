@@ -12,12 +12,17 @@
   background-color:#41c04d;
   color:lightcyan;
 }
-td{
-  text-align: center;
+// td{
+//   text-align: center;
+// }
+.checked {
+  color: orange;
 }
-.star{
-  width: 2rem;
-  height: 2rem
+.nochecked{
+  color:white;
+}
+.mauchu{
+  color:lightcyan;
 }
 img{
   // display: block;
@@ -25,4 +30,7 @@ img{
   margin-right: auto;
   width: 80%;
   height: 12rem;
+}
+tr{
+  text-align: center;
 }

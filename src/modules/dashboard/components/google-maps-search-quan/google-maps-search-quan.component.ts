@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Input, Component, OnInit, NgZone, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, Input, Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { environment } from './../../../../environments/environment';
 declare const L: any;
 
@@ -8,16 +9,23 @@ declare const L: any;
     templateUrl: './google-maps-search-quan.component.html',
     styleUrls: ['google-maps-search-quan.component.scss'],
 })
-export class GoogleMapsSearchQuanComponent implements OnInit {
+export class GoogleMapsSearchQuanComponent implements OnInit , OnDestroy{
     constructor(
         private changeDetectorRef: ChangeDetectorRef
 
         ) {}
+    subscription: Subscription = new Subscription();
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
+    }
+
     ngOnInit() {
         console.log(this.listquans);
         this.hienVitricacquan(this.listquans);
         this.changeDetectorRef.detectChanges();
         
+       // this.getListquans();
+        //this.checktoken()
         
     }
     url= environment.url+"/api/v1/";

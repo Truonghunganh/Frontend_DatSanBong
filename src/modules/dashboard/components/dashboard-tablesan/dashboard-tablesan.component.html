@@ -1,16 +1,20 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <sb-card>
-    <div class="card-header border1">
-        <h4 style="text-align: center;"> Thông tin của Quán</h4>
+    <div class="card-header border2">
+        <h6 style="text-align: center;"> Thông tin của Quán</h6>
     </div>
-    <div class="card-body" >
+    <div class="card-body" style="background-color:#33CC66; color:lightcyan;">
         <div *ngIf="chekquanvasan; then display2; else loading2"></div>
         <ng-template #display2>
             <div class="text-center">
                 <table style="width: 100%;">
-                    <tr>
-                        <td  style="text-align: center;" rowspan="4">
+                    <tr >
+                        <td  style="text-align: center; width: 50%;" rowspan="4">
                             <div *ngIf="quan.image">
-                                <img style="width: 150px; " src="{{url+'/'+quan.image}}">
+                                <img style="width: 100%; " src="{{url+'/'+quan.image}}">
                             </div>
                             <div *ngIf="!quan.image">
                                 <img class="profile_img" src="../../../assets/img/avatar.jpg">
@@ -28,28 +32,29 @@
                     </tr>
                     <tr>
                         <td style="text-align: center;" *ngIf="!nutReview">
-                            <img *ngIf="mangreviewquan[0]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[0]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[1]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[1]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[2]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[2]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[3]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[3]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[4]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[4]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <span *ngIf="mangreviewquan[0]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[0]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[1]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[1]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[2]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[2]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[3]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[3]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[4]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[4]" class="fa fa-star nochecked"></span>
                         </td>
                         <td style="text-align: center;" *ngIf="nutReview">
-                            <img *ngIf="mangreviewuser[0]" (click)="chonreview(1)" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewuser[0]" (click)="chonreview(1)" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewuser[1]" (click)="chonreview(2)" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewuser[1]" (click)="chonreview(2)" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewuser[2]" (click)="chonreview(3)" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewuser[2]" (click)="chonreview(3)" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewuser[3]" (click)="chonreview(4)" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewuser[3]" (click)="chonreview(4)" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewuser[4]" (click)="chonreview(5)" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewuser[4]" (click)="chonreview(5)" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <span *ngIf="mangreviewuser[0]" (click)="chonreview(1)" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewuser[0]" (click)="chonreview(1)" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewuser[1]" (click)="chonreview(2)" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewuser[1]" (click)="chonreview(2)" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewuser[2]" (click)="chonreview(3)" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewuser[2]" (click)="chonreview(3)" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewuser[3]" (click)="chonreview(4)" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewuser[3]" (click)="chonreview(4)"class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewuser[4]" (click)="chonreview(5)" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewuser[4]" (click)="chonreview(5)"class="fa fa-star nochecked"></span>
+
                         </td>
                         <input type="button" class="btn btn-success float-right" (click)="updatereview()" value="{{strNutReview}}" />
                     </tr>
@@ -67,8 +72,8 @@
 </sb-card>
 
 <sb-card>
-    <div class="card-header border1">
-        <h4 >Tình trạng đặt sân</h4>
+    <div class="card-header border2">
+        <h6 >Tình trạng đặt sân</h6>
         <div class="form-group">
             <div>
                 Hãy chọn ngày đặt sân :
@@ -202,8 +207,8 @@
 </sb-card>
 
 <sb-card>
-    <div class="card-header border1">
-        <h4 >Danh sách các sân bóng</h4>
+    <div class="card-header border2">
+        <h6 >Danh sách các sân bóng</h6>
     </div>
     <div class="card-body">
         <div *ngIf="chekquanvasan; then display1; else loading1"></div>
@@ -212,25 +217,22 @@
                 <div class="col-sm-4" *ngFor="let san of sansTT ;index as i">
                     <div class="card">
                         <div class="card-header border1">
-                            <h2>{{i+1}}</h2>
+                            {{i+1}}
                         </div>
-                        <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
-                            <table class="table table-striped ">
-                                <tbody class="border1">
-                                    <tr>
-                                        <td>tên sân</td>
-                                        <td> <strong>{{ san.name }}</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>số người trong 1 phe</td>
-                                        <td><strong>{{ san.numberpeople}}</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>số tiền trong 1 giờ</td>
-                                        <td><strong>{{ san.priceperhour }}</strong></td>
-                                    </tr>
-                        
-                                </tbody>
+                        <div class="card-body" style="background-color:#41c04d;">
+                            <table class="table">
+                                <tr>
+                                    <td>tên sân</td>
+                                    <td> <strong>{{ san.name }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>số người trong 1 phe</td>
+                                    <td><strong>{{ san.numberpeople}}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>số tiền trong 1 giờ</td>
+                                    <td><strong>{{ san.priceperhour }}</strong></td>
+                                </tr>
                             </table>
                         </div>
                     </div>

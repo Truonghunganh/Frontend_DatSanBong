@@ -26,7 +26,7 @@ export class AuthService {
   //  private adminSubject: any;
     logout() {
         this.storage.set('token', JSON.stringify(1));
-        this.router.navigate(['auth/login']);
+        this.router.navigate(['dashboard/home']);
 
     }
     checkToken(): Observable<any> {
