@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <sb-card>
     <div class="card-header border1">
         <h5 >THAY ĐỔI THÔNG TIN CỦA SÂN</h5>
@@ -8,15 +12,15 @@
                 <h6>Thông tin của Quán
                 </h6>
             </div>
-            <div class="card-body">
+            <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
                 <div *ngIf="checkquan; then display2; else loading2"></div>
                 <ng-template #display2>
                     <div class="text-center">
                         <table style="width: 100%;">
                             <tr>
-                                <td style="text-align: center;width: 50%;" rowspan="4">
+                                <td style="text-align: center;" rowspan="4">
                                     <div *ngIf="quan.image">
-                                        <img style="width: 50%; " src="{{url+'/'+quan.image}}">
+                                        <img style="width: 150px; " src="{{url+'/'+quan.image}}">
                                     </div>
                                     <div *ngIf="!quan.image">
                                         <img class="profile_img" src="../../../assets/img/avatar.jpg">
@@ -29,23 +33,21 @@
                             </tr>
                             <tr>
                                 <td style="text-align: center;">
-                                    <a href="{{quan.linkaddress}}">
-                                        <strong>{{ quan.address}}</strong>
-                                    </a>
+                                    <strong>{{ quan.address}}</strong>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="text-align: center;">
-                                    <img *ngIf="mangreviewquan[0]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                                    <img *ngIf="!mangreviewquan[0]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                                    <img *ngIf="mangreviewquan[1]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                                    <img *ngIf="!mangreviewquan[1]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                                    <img *ngIf="mangreviewquan[2]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                                    <img *ngIf="!mangreviewquan[2]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                                    <img *ngIf="mangreviewquan[3]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                                    <img *ngIf="!mangreviewquan[3]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                                    <img *ngIf="mangreviewquan[4]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                                    <img *ngIf="!mangreviewquan[4]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                                    <span *ngIf="mangreviewquan[0]" class="fa fa-star checked"></span>
+                                    <span *ngIf="!mangreviewquan[0]" class="fa fa-star nochecked"></span>
+                                    <span *ngIf="mangreviewquan[1]" class="fa fa-star checked"></span>
+                                    <span *ngIf="!mangreviewquan[1]" class="fa fa-star nochecked"></span>
+                                    <span *ngIf="mangreviewquan[2]" class="fa fa-star checked"></span>
+                                    <span *ngIf="!mangreviewquan[2]" class="fa fa-star nochecked"></span>
+                                    <span *ngIf="mangreviewquan[3]" class="fa fa-star checked"></span>
+                                    <span *ngIf="!mangreviewquan[3]" class="fa fa-star nochecked"></span>
+                                    <span *ngIf="mangreviewquan[4]" class="fa fa-star checked"></span>
+                                    <span *ngIf="!mangreviewquan[4]" class="fa fa-star nochecked"></span>
                                 </td>
                             </tr>
                         </table>
@@ -60,6 +62,7 @@
                 </ng-template>
             </div>
         </sb-card>
+
         <sb-card>
             <div class="card-header border1">
                 <h6 >Thông tin của sân</h6>

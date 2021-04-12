@@ -1,12 +1,16 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <sb-card>
     <div class="card-header border1">
-        <h4> DOANH THU CỦA QUÁN</h4>
+        <h5> DOANH THU CỦA QUÁN</h5>
     </div>
     <div class="card-body">
         <sb-card>
             <div class="card-header border1">
-                <h5>Thông tin của Quán
-                </h5>
+                <h6>Thông tin của Quán
+                </h6>
             </div>
             <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
                 <div *ngIf="checkquan; then display2; else loading2"></div>
@@ -22,28 +26,28 @@
                                         <img class="profile_img" src="../../../assets/img/avatar.jpg">
                                     </div>
                                 </td>
-                                <td style="text-align: center;"> <strong>{{ quan.name }}</strong></td>
+                                <td style="color:lightcyan"> <strong>{{ quan.name }}</strong></td>
                             </tr>
                             <tr>
-                                <td style="text-align: center;"><strong>{{ quan.phone}}</strong></td>
+                                <td style="color:lightcyan"><strong>{{ quan.phone}}</strong></td>
                             </tr>
                             <tr>
-                                <td style="text-align: center;">
+                                <td style="color:lightcyan">
                                     <strong>{{ quan.address}}</strong>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="text-align: center;">
-                                    <img *ngIf="mangreviewquan[0]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                                    <img *ngIf="!mangreviewquan[0]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                                    <img *ngIf="mangreviewquan[1]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                                    <img *ngIf="!mangreviewquan[1]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                                    <img *ngIf="mangreviewquan[2]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                                    <img *ngIf="!mangreviewquan[2]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                                    <img *ngIf="mangreviewquan[3]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                                    <img *ngIf="!mangreviewquan[3]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                                    <img *ngIf="mangreviewquan[4]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                                    <img *ngIf="!mangreviewquan[4]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                                    <span *ngIf="mangreviewquan[0]" class="fa fa-star checked"></span>
+                                    <span *ngIf="!mangreviewquan[0]" class="fa fa-star nochecked"></span>
+                                    <span *ngIf="mangreviewquan[1]" class="fa fa-star checked"></span>
+                                    <span *ngIf="!mangreviewquan[1]" class="fa fa-star nochecked"></span>
+                                    <span *ngIf="mangreviewquan[2]" class="fa fa-star checked"></span>
+                                    <span *ngIf="!mangreviewquan[2]" class="fa fa-star nochecked"></span>
+                                    <span *ngIf="mangreviewquan[3]" class="fa fa-star checked"></span>
+                                    <span *ngIf="!mangreviewquan[3]" class="fa fa-star nochecked"></span>
+                                    <span *ngIf="mangreviewquan[4]" class="fa fa-star checked"></span>
+                                    <span *ngIf="!mangreviewquan[4]" class="fa fa-star nochecked"></span>
                                 </td>
                             </tr>
                         </table>
@@ -62,20 +66,24 @@
         <div *ngIf="checkchitiet">
             <sb-card>
                 <div class="card-header border1">
-                    <h5 > Chọn tháng doanh thu :
+                    <h6 > Chọn tháng doanh thu :
                         <input type="month" [(ngModel)]="thang" (change)="chonthang($event);">
-                    </h5>
+                    </h6>
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="color:red">
                     <div *ngIf="checkdoanhthus then display; else loading"></div>
                     <ng-template #display>
                         <table style="width: 100%;" border="1">
                             <tr>
-                                <td style="text-align: center;width: 40%;">Doanh Thu</td>
-                                <td style="text-align: center;width: 30%;">ngày</td>
-                                <td style="text-align: center;width: 30%;">Chi tiết</td>
+                                <td style="width: 10%;">STT</td>
+                                <td style="width: 30%;">Doanh Thu</td>
+                                <td style="width: 30%;">ngày</td>
+                                <td style="width: 30%;">Chi tiết</td>
                             </tr>
-                            <tr *ngFor="let doanhthu of doanhthus">
+                            <tr *ngFor="let doanhthu of doanhthus ; index as i">
+                                <td>
+                                    {{i+1}}
+                                </td>
                                 <td>
                                     {{doanhthu.doanhthu}}
                                 </td>
@@ -102,16 +110,16 @@
             </sb-card>
             <sb-card>
                 <div class="card-header border2">
-                    <h5> Doanh thu của năm : <input type='number' min="2020" [(ngModel)]="year" name="year" max="2100"
+                    <h6> Doanh thu của năm : <input type='number' min="2020" [(ngModel)]="year" name="year" max="2100"
                             (change)="chonNam();">
-                    </h5>
+                    </h6>
                     <h6>Dạng biểu đồ :{{dangBD}}
                         <input type="button" class="btn btn-info float-right" (click)="cot()" value="Biểu đồ Cột" />
                         <input type="button" class="btn btn-success float-right" (click)="tron()" value="Biểu đồ tròn" />
                         <input type="button" class="btn btn-primary float-right" (click)="duong()" value="Biểu đồ đường" />
                     </h6>
                 </div>
-                <div class="card-body">
+                <div class="card-body " style="color:red">
                     <div *ngIf="checkdoanhthustheonam then display1; else loading1"></div>
                     <ng-template #display1>
                         <div class="chart-wrapper">

@@ -1,20 +1,20 @@
 <sb-card>
-    <div class="card-header">
-        <h1 style="color:blue;text-align: center;">Thông tin đặt sân</h1>
+    <div class="card-header border1">
+        <h5 >Thông tin đặt sân</h5>
     </div>
     <div class="card-body">
         <sb-card>
-            <div class="card-header">
+            <div class="card-header border2">
                 <div class="custom-control custom-switch">
                     <input (click)="ChangeStatus()" type="checkbox" class="custom-control-input" id="status" checked>
                     <label class="custom-control-label" for="status">
-                        <h3>Trạng thái xác nhận</h3>
+                        <h6>Trạng thái xác nhận</h6>
                     </label>
                 </div>
             </div>
             <div class="card-body">
                 <div *ngIf="trangthai">
-                    <h1>Danh sách đặt sân của chủ quán đã xác nhận</h1>
+                    <h6 class="red">Danh sách đặt sân của chủ quán đã xác nhận</h6>
                     <sb-card>
                         <div class="card-body">
                             <div *ngIf="checkdatsans ; then display ; else loading"></div>
@@ -24,14 +24,14 @@
                                     <table class="table table-striped " style="width:100%">
                                         <thead>
                                             <tr>
-                                                <td>STT</td>
-                                                <td>Tên sân</td>
-                                                <td>Số người</td>
-                                                <td>Tiền</td>
-                                                <td>Tên Người đặt</td>
-                                                <td>Số điện thoại người đặt</td>
-                                                <td>giờ đặt sân</td>
-                                                <td>chủ quán xác nhận</td>
+                                                <th>STT</th>
+                                                <th>Tên sân</th>
+                                                <th>Số người</th>
+                                                <th>Tiền</th>
+                                                <th>Tên Người đặt</th>
+                                                <th>Số điện thoại người đặt</th>
+                                                <th>giờ đặt sân</th>
+                                                <th>chủ quán xác nhận</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -60,13 +60,12 @@
                                     </div>
                                 </div>
                             </ng-template>
-                
                         </div>
                     </sb-card>
                 </div>
                 
                 <div *ngIf="!trangthai">
-                    <h1>Danh sách đặt sân của quán chưa xác nhận</h1>
+                    <h6 style="text-align: center; color:red">Danh sách đặt sân của quán chưa xác nhận</h6>
                     <sb-card>
                         <div class="card-body">
                             <div *ngIf="checkdatsans ; then display1 ; else loading1"></div>
@@ -75,15 +74,15 @@
                                     <table class="table table-striped " style="width:100%">
                                         <thead>
                                             <tr>
-                                                <td>STT</td>
-                                                <td>Tên sân</td>
-                                                <td>Số người</td>
-                                                <td>Tiền</td>
-                                                <td>Tên Người đặt</td>
-                                                <td>Số điện thoại người đặt</td>
-                                                <td>giờ đặt sân</td>
-                                                <td>chủ quán xác nhận</td>
-                                                <td>Actions</td>
+                                                <th>STT</th>
+                                                <th>Tên sân</th>
+                                                <th>Số người</th>
+                                                <th>Tiền</th>
+                                                <th>Tên Người đặt</th>
+                                                <th>Số điện thoại người đặt</th>
+                                                <th>giờ đặt sân</th>
+                                                <th>chủ quán xác nhận</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>

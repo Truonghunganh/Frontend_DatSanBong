@@ -39,7 +39,11 @@ export class ThongTinDatSansComponent implements OnInit {
     checktoken(idquan: number) {
         this.authService.checkTokenInnkeeperAndIdquan(idquan).subscribe(data => {
             if (!data.status) {
-                this.router.navigate(['/dashboard/quans'])
+                Swal.fire({
+                    icon: 'error',
+                    title: data.message,
+                })
+                this.router.navigate(['/innkeeper/quans'])
             } else {
                 this.getAllDatSanByInnkeeperAndIdquan(this.idquan,this.trangthai,this.time);
             }

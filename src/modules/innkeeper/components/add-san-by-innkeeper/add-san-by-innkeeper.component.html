@@ -1,7 +1,12 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
 <sb-card>
     <div class="card-header border1">
-        <h5 >Thông tin của Quán
-        </h5>
+        <h6 >Thông tin của Quán
+        </h6>
     </div>
     <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
         <div *ngIf="checkquan; then display2; else loading2"></div>
@@ -29,16 +34,16 @@
                     </tr>
                     <tr>
                         <td style="text-align: center;">
-                            <img *ngIf="mangreviewquan[0]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[0]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[1]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[1]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[2]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[2]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[3]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[3]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[4]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[4]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <span *ngIf="mangreviewquan[0]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[0]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[1]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[1]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[2]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[2]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[3]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[3]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[4]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[4]" class="fa fa-star nochecked"></span>
                         </td>
                     </tr>
                 </table>
@@ -56,7 +61,7 @@
 
 <sb-card>
     <div class="card-header border1">
-        <h5 > Thêm sân vào quán</h5>
+        <h6 > Thêm sân vào quán</h6>
     </div>
     <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
         <form>

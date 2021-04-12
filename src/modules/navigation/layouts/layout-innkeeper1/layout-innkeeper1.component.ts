@@ -23,8 +23,9 @@ export class LayoutInnkeeper1Component implements OnInit, OnDestroy {
     subscription: Subscription = new Subscription();
     user: any;
     ngOnInit() {
-        this.authService.checkTokenUser().subscribe(data => {
-
+        this.authService.checkTokenInnkeeper().subscribe(data => {
+            console.log(data);
+            
             if (data.status) {
                 this.user = data.user;
                 this.changeDetectorRef.detectChanges();
@@ -35,7 +36,7 @@ export class LayoutInnkeeper1Component implements OnInit, OnDestroy {
                     icon: 'error',
                     title: data.message,
                 })
-                this.router.navigate(['/dashboard/quans']);
+                this.router.navigate(['/auth/login']);
             }
         })
     }

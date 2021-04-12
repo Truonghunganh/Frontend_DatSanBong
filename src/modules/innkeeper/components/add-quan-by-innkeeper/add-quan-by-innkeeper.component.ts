@@ -35,15 +35,6 @@ export class AddQuanByInnkeeperComponent implements OnInit {
     }
    
     ngOnInit() {
-        this.authService.checkTokenInnkeeper().subscribe(data => {
-            if (!data.status) {
-                Swal.fire({
-                    icon: 'error',
-                    title: data.message,
-                });
-                this.router.navigate(['/auth/login']);
-            } 
-        })
     }
     Add(name: string, address: string, linkaddress: string, vido: string, kinhdo: string){
         const formData = new FormData();

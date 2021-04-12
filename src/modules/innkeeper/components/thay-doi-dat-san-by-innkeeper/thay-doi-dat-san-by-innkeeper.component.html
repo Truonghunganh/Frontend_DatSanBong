@@ -1,19 +1,19 @@
 <sb-card>
-    <div class="card-header">
-        <h5 style="color:#41c04d;text-align: center;">THAY ĐỔI THÔNG TIN ĐẶT SÂN</h5>
+    <div class="card-header border1">
+        <h5 >THAY ĐỔI THÔNG TIN ĐẶT SÂN</h5>
     </div>
     <div class="card-body">
         <sb-card>
             <div class="card-header">
-                <h6 style="color:blue ;text-align: center"> Danh sách đặt sân muốn thay đổi</h6>
+                <h6 style="color:green ;text-align: center"> Danh sách đặt sân muốn thay đổi</h6>
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Tên sân cần thay đổi</label>
+                    <label class="col-lg-3 col-form-label form-control-label red">Tên sân cần thay đổi</label>
                     <div class="col-lg-9">
                         <input class="form-control" [(ngModel)]="tensanOld" required />
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Thời gian cần thay đổi</label>
+                    <label class="col-lg-3 col-form-label form-control-label red">Thời gian cần thay đổi</label>
                     <div class="col-lg-9">
                         <input class="form-control" [(ngModel)]="timeOld" required />
                     </div>
@@ -21,7 +21,7 @@
             </div>
             <div class="card-body">
                 <div class="form-group row">
-                    <label class="col-lg-4 col-form-label form-control-label">Hãy chọn ngày đặt sân :</label>
+                    <label class="col-lg-4 col-form-label form-control-label red">Hãy chọn ngày đặt sân :</label>
                     <div class="col-lg-7">
                         <input class="form-control" type="date" [(ngModel)]="todayOld" (change)="chonngayOld($event);" required />
                     </div>
@@ -31,94 +31,94 @@
                     <table style="width: 100%;" border="1" *ngFor="let quan of listdatsancuaquanOld ;index as j">
                         <tr>
                             <td colspan="17">
-                                <label style="text-align: center;" class="col-lg-12 col-form-label form-control-label">thông tin của quán : {{quan.name}}</label>
+                                <label style="text-align: center;" class="col-lg-12 col-form-label form-control-label red">thông tin của quán : {{quan.name}}</label>
                             </td>
                         </tr>
         
                         <tr>
-                            <td style="text-align: center;width: 6%;">tên sân</td>
-                            <td style="text-align: center;width: 6%;">5h</td>
-                            <td style="text-align: center;width: 6%;">6h</td>
-                            <td style="text-align: center;width: 6%;">7h</td>
-                            <td style="text-align: center;width: 6%;">8h</td>
-                            <td style="text-align: center;width: 6%;">9h</td>
-                            <td style="text-align: center;width: 6%;">10h</td>
-                            <td style="text-align: center;width: 6%;">11h</td>
-                            <td style="text-align: center;width: 6%;">12h</td>
-                            <td style="text-align: center;width: 6%;">13h</td>
-                            <td style="text-align: center;width: 6%;">14h</td>
-                            <td style="text-align: center;width: 6%;">15h</td>
-                            <td style="text-align: center;width: 6%;">16h</td>
-                            <td style="text-align: center;width: 6%;">17h</td>
-                            <td style="text-align: center;width: 6%;">18h</td>
-                            <td style="text-align: center;width: 6%;">19h</td>
-                            <td style="text-align: center;width: 6%;">20h</td>
+                            <th style="width: 4%;">tên sân</th>
+                            <th>5h</th>
+                            <th >6h</th>
+                            <th >7h</th>
+                            <th >8h</th>
+                            <th >9h</th>
+                            <th >10h</th>
+                            <th >11h</th>
+                            <th >12h</th>
+                            <th >13h</th>
+                            <th >14h</th>
+                            <th >15h</th>
+                            <th >16h</th>
+                            <th >17h</th>
+                            <th >18h</th>
+                            <th >19h</th>
+                            <th >20h</th>
                         </tr>
-                        <tr *ngFor="let san of quan.sans ;index as i">
+                        <tr *ngFor="let san of quan.sans ;index as i" class="maunenvachu">
                             <td>
                                 {{san.name}}
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td>
                                 <button *ngIf="mangDatsanOld[j][i][0]" (click)="chondatsanOld(0, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][1]" (click)="chondatsanOld(1, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][2]" (click)="chondatsanOld(2, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][3]" (click)="chondatsanOld(3, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][4]" (click)="chondatsanOld(4, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][5]" (click)="chondatsanOld(5, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][6]" (click)="chondatsanOld(6, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td>
                                 <button *ngIf="mangDatsanOld[j][i][7]" (click)="chondatsanOld(7, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td>
                                 <button *ngIf="mangDatsanOld[j][i][8]" (click)="chondatsanOld(8, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][9]" (click)="chondatsanOld(9, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][10]" (click)="chondatsanOld(10, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][11]" (click)="chondatsanOld(11, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][12]" (click)="chondatsanOld(12, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][13]" (click)="chondatsanOld(13, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][14]" (click)="chondatsanOld(14, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="mangDatsanOld[j][i][15]" (click)="chondatsanOld(15, san.id,san.name)" class="btdt">đã
                                     đặt</button>
                             </td>
@@ -138,16 +138,16 @@
 
         <sb-card>
             <div class="card-header">
-                <h6 style="text-align: center;color:blueviolet">Danh sách đặt sân mới mà bạn muốn thay đổi</h6>
+                <h6 style="text-align: center;color:green">Danh sách đặt sân mới mà bạn muốn thay đổi</h6>
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Tên sân mới
+                    <label class="col-lg-3 red col-form-label form-control-label">Tên sân mới
                     </label>
                     <div class="col-lg-9">
                         <input class="form-control" [(ngModel)]="tensanNew" required />
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label">Thời gian mới</label>
+                    <label class="col-lg-3 red col-form-label form-control-label">Thời gian mới</label>
                     <div class="col-lg-9">
                         <input class="form-control" [(ngModel)]="timeNew" required />
                     </div>
@@ -155,7 +155,7 @@
             </div>
             <div class="card-body">
                 <div class="form-group row">
-                    <label class="col-lg-4 col-form-label form-control-label">Hãy chọn ngày đặt sân :</label>
+                    <label class="col-lg-4 col-form-label form-control-label red">Hãy chọn ngày đặt sân :</label>
                     <div class="col-lg-7">
                         <input class="form-control" type="date" [(ngModel)]="todayNew" (change)="chonngayNew($event);" required />
                     </div>
@@ -165,95 +165,95 @@
                     <table style="width: 100%;" border="1" *ngFor="let quan of listdatsancuaquanNew ;index as j">
                         <tr>
                             <td colspan="17">
-                                <label style="text-align: center;" class="col-lg-12 col-form-label form-control-label">thông tin của quán :
+                                <label style="text-align: center;" class="col-lg-12 col-form-label red form-control-label">thông tin của quán :
                                     {{quan.name}}</label>
                             </td>
                         </tr>
         
                         <tr>
-                            <td style="text-align: center;width: 6%;">tên sân</td>
-                            <td style="text-align: center;width: 6%;">5h</td>
-                            <td style="text-align: center;width: 6%;">6h</td>
-                            <td style="text-align: center;width: 6%;">7h</td>
-                            <td style="text-align: center;width: 6%;">8h</td>
-                            <td style="text-align: center;width: 6%;">9h</td>
-                            <td style="text-align: center;width: 6%;">10h</td>
-                            <td style="text-align: center;width: 6%;">11h</td>
-                            <td style="text-align: center;width: 6%;">12h</td>
-                            <td style="text-align: center;width: 6%;">13h</td>
-                            <td style="text-align: center;width: 6%;">14h</td>
-                            <td style="text-align: center;width: 6%;">15h</td>
-                            <td style="text-align: center;width: 6%;">16h</td>
-                            <td style="text-align: center;width: 6%;">17h</td>
-                            <td style="text-align: center;width: 6%;">18h</td>
-                            <td style="text-align: center;width: 6%;">19h</td>
-                            <td style="text-align: center;width: 6%;">20h</td>
+                            <th style="width: 4%;">tên sân</th>
+                            <th>5h</th>
+                            <th>6h</th>
+                            <th>7h</th>
+                            <th>8h</th>
+                            <th>9h</th>
+                            <th>10h</th>
+                            <th>11h</th>
+                            <th>12h</th>
+                            <th>13h</th>
+                            <th>14h</th>
+                            <th>15h</th>
+                            <th>16h</th>
+                            <th>17h</th>
+                            <th>18h</th>
+                            <th>19h</th>
+                            <th>20h</th>
                         </tr>
-                        <tr *ngFor="let san of quan.sans ;index as i">
+                        <tr *ngFor="let san of quan.sans ;index as i" class="maunenvachu">
                             <td>
                                 {{san.name}}
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][0]" (click)="chondatsanNew(0, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][1]" (click)="chondatsanNew(1, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][2]" (click)="chondatsanNew(2, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][3]" (click)="chondatsanNew(3, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][4]" (click)="chondatsanNew(4, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][5]" (click)="chondatsanNew(5, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][6]" (click)="chondatsanNew(6, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][7]" (click)="chondatsanNew(7, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][8]" (click)="chondatsanNew(8, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][9]" (click)="chondatsanNew(9, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][10]" (click)="chondatsanNew(10, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][11]" (click)="chondatsanNew(11, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][12]" (click)="chondatsanNew(12, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][13]" (click)="chondatsanNew(13, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][14]" (click)="chondatsanNew(14, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>
-                            <td style="background-color: #41c04d;">
+                            <td >
                                 <button *ngIf="!mangDatsanNew[j][i][15]" (click)="chondatsanNew(15, san.id,san.name)" class="btdt">chưa
                                     đặt</button>
                             </td>

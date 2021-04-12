@@ -1,5 +1,15 @@
 @import 'styles/variables.scss';
 
+th {
+	color: lightcyan;
+	background-color:red;
+  text-align: center;
+}
+tbody{
+  background-color:#EEEEEE;
+}
 td{
   text-align: center;
+  color: #222222;
+  font-size:14px;
 }

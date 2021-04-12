@@ -25,19 +25,11 @@ export class GetQuansByInnkeeperComponent implements OnInit {
     url = environment.url;
     urlCLU = environment.urlCLU;
     ngOnInit() {
-        this.checktoken();
-
+        this.getListquans();
+ 
     }
-
-    checktoken() {
-        this.authService.checkTokenInnkeeper().subscribe(data => {
-            if (!data.status) {
-                this.router.navigate(['/auth/login']);
-            } else {
-                this.getListquans();
-            }
-        })
-    }
+    hienthivitricuaminh = true;
+    user="innkeeper";
     getListquans() {
         this.checkquans= false;
         this.dashboardService.getListQuansByTokenInnkeeper().subscribe(data=>{
@@ -52,9 +44,6 @@ export class GetQuansByInnkeeperComponent implements OnInit {
                 this.checkquans=true;
                 this.changeDetectorRef.detectChanges();
 
-            }
-            else{
-                
             }
         })
     }

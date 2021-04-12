@@ -1,7 +1,12 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
 <sb-card>
     <div class="card-header border1">
-        <h5>Thông tin của Quán
-        </h5>
+        <h6>Thông tin của Quán
+        </h6>
     </div>
     <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
         <div *ngIf="checkquan; then display2; else loading2"></div>
@@ -29,16 +34,16 @@
                     </tr>
                     <tr>
                         <td style="text-align: center;">
-                            <img *ngIf="mangreviewquan[0]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[0]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[1]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[1]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[2]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[2]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[3]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[3]" src="../../../assets/img/reviews/0-star.svg" class="star">
-                            <img *ngIf="mangreviewquan[4]" src="../../../assets/img/reviews/Star_full.svg" class="star">
-                            <img *ngIf="!mangreviewquan[4]" src="../../../assets/img/reviews/0-star.svg" class="star">
+                            <span *ngIf="mangreviewquan[0]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[0]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[1]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[1]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[2]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[2]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[3]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[3]" class="fa fa-star nochecked"></span>
+                            <span *ngIf="mangreviewquan[4]" class="fa fa-star checked"></span>
+                            <span *ngIf="!mangreviewquan[4]" class="fa fa-star nochecked"></span>
                         </td>
                     </tr>
                 </table>
@@ -56,8 +61,8 @@
 
 <sb-card>
     <div class="card-header border1">
-        <h5>Chức năng của quán
-        </h5>
+        <h6>Chức năng của quán
+        </h6>
     </div>
     <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
         <table style="width:100%;">
@@ -73,7 +78,7 @@
 
 <sb-card>
     <div class="card-header border1">
-        <h5>Tình trạng đặt sân</h5>
+        <h6>Tình trạng đặt sân</h6>
         <div class="form-group">
             <div>
                 Hãy chọn ngày đặt sân :
@@ -183,7 +188,7 @@
 
 <sb-card>
     <div class="card-header border1">
-        <h5>Danh sách các sân bóng</h5>
+        <h6>Danh sách các sân bóng</h6>
     </div>
     <div class="card-body">
         <div *ngIf="checkdatsan; then display1; else loading1"></div>
@@ -192,36 +197,36 @@
                 <div class="col-sm-4" *ngFor="let san of sans ;index as i">
                     <div class="card">
                         <div class="card-header border1">
-                            <h2>{{i+1}}</h2>
+                            <h6>{{i+1}}</h6>
                         </div>
                         <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
-                            <table class="table table-striped ">
-                                <tbody class="border1">
-                                    <tr>
-                                        <td>tên sân</td>
-                                        <td> <strong>{{ san.name }}</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>số người trong 1 phe</td>
-                                        <td><strong>{{ san.numberpeople}}</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>số tiền trong 1 giờ</td>
-                                        <td><strong>{{ san.priceperhour }}</strong></td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="custom-control custom-switch">
-                                                <input [checked]="san.trangthai" type="checkbox" class="custom-control-input" id="status">
-                                                <label class="custom-control-label" type='hidden' for="status">
-                                                </label>
-                                                <button class="btn btn-success" (click)="thaydoi(san.id,san.trangthai)">thay đổi</button>
-                                            </div>
-                                        </td>
-                                        <fa-icon routerLink="/innkeeper/editSan/{{san.id}}" class='fas fa-trash fa-2x' [icon]='["fas","edit"]'></fa-icon>
-                                    </tr>
-
-                                </tbody>
+                            <table class="table">
+                                <tr>
+                                    <td>tên sân</td>
+                                    <td> <strong>{{ san.name }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>số người trong 1 phe</td>
+                                    <td><strong>{{ san.numberpeople}}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>số tiền trong 1 giờ</td>
+                                    <td><strong>{{ san.priceperhour }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="custom-control custom-switch">
+                                            <input [checked]="san.trangthai" type="checkbox" class="custom-control-input" id="status">
+                                            <label class="custom-control-label" type='hidden' for="status">
+                                            </label>
+                                        </div>
+                                        <button class="btn btn-success" (click)="thaydoi(san.id,san.trangthai)">thay đổi</button>
+                                    </td>
+                                    <td>
+                                        <fa-icon routerLink="/innkeeper/editSan/{{san.id}}" class='fas fa-2x' [icon]='["fas","edit"]'></fa-icon>
+                                    </td>
+                                    
+                                </tr>
                             </table>
                         </div>
                     </div>

@@ -13,7 +13,6 @@ import { AuthService } from './../../services/auth.service';
     styleUrls: ['login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-    loginFormGroup: any;
     checklogin=true;
     constructor(
         private formBuilder: FormBuilder,
@@ -24,19 +23,26 @@ export class LoginComponent implements OnInit {
     ) {}
     ngOnInit() {
         
-        this.loginFormGroup = this.formBuilder.group({
-            phone: ['', Validators.required],
-            password: ['', Validators.required],
-        });
         this.checklogin=false;
         this.authService.checkToken().subscribe(
             result => {
                 console.log(result);
                 
                 if (result.status) {
-                    if (result.user.role == "user") this.router.navigate(['/dashboard/quans']);
-                    if (result.user.role == "innkeeper") this.router.navigate(['/innkeeper/quans']);
-                    if (result.user.role == "admin") this.router.navigate(['/admin/quans']);
+                    if (result.user.role == "user"){
+                        console.log(1);
+                        
+                        this.router.navigate(['/dashboard/quans']);
+                    } else if (result.user.role == "innkeeper"){
+                        console.log(2);
+                        
+                        this.router.navigate(['/innkeeper/quans']);
+                    } 
+                    if (result.user.role == "admin") {
+                        console.log(3);
+                        
+                        this.router.navigate(['/admin/quans']);
+                    }
                 }else{
                     this.checklogin=true;
                     this.changeDetectorRef.detectChanges();
@@ -52,22 +58,22 @@ export class LoginComponent implements OnInit {
         const user = new User(this.phone, this.password);
         console.log(user);
         
-        this.authService.login(user).subscribe(result => {
-            if (result.status) {
-                if (result.user.role == "user") this.router.navigate(['/dashboard/quans']);
-                if (result.user.role == "innkeeper") this.router.navigate(['/innkeeper/quans']);
-                if (result.user.role == "admin") this.router.navigate(['/admin/quans']);
+        // this.authService.login(user).subscribe(result => {
+        //     if (result.status) {
+        //         if (result.user.role == "user") this.router.navigate(['/dashboard/quans']);
+        //         if (result.user.role == "innkeeper") this.router.navigate(['/innkeeper/quans']);
+        //         if (result.user.role == "admin") this.router.navigate(['/admin/quans']);
                 
-            } else {
-                this.checklogin = true;
-                Swal.fire({
-                    icon: 'error',
-                    text: 'số điện thoại hay mật khẩu sai !',
-                })
-                this.checklogin = true;
-                this.changeDetectorRef.detectChanges();
-            }
-        })
+        //     } else {
+        //         this.checklogin = true;
+        //         Swal.fire({
+        //             icon: 'error',
+        //             text: 'số điện thoại hay mật khẩu sai !',
+        //         })
+        //         this.checklogin = true;
+        //         this.changeDetectorRef.detectChanges();
+        //     }
+        // })
     }
     
 }

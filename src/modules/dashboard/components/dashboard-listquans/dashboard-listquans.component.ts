@@ -23,25 +23,9 @@ export class DashboardListquansComponent implements OnInit {
     url = environment.url;
     urlCLU= environment.urlCLU;
     ngOnInit() {
-        this.checktoken();
+        this.getListquans();
     }
 
-    checktoken(){
-        this.authService.checkTokenUser().subscribe(data=>{
-            console.log(data);
-            
-            if (!data.status) {
-                Swal.fire({
-                    icon: 'error',
-                    title: data.message,
-                });
-                this.router.navigate(['/auth/login']);
-            }else{
-                this.getListquans();
-                
-            }
-        })
-    }
     mangreview=new Array();
     getListquans() {
         this.checkquans= false;

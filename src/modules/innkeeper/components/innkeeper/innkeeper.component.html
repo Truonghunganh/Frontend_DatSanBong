@@ -1,26 +1,26 @@
 
 
 <sb-card>
-    <div class="card-header">
-        <h1 style="color:red"> 2. các quán chưa được phe duyệt của chủ quán
-        </h1>
+    <div class="card-header" style="text-align: center;">
+        <h6 style="color:red"> các quán chưa được phe duyệt của chủ quán
+        </h6>
     </div>
     <div class="card-body">
         <div *ngIf="checklistquanschuapheduyet ; then display1 ; else loading1"></div>
         <ng-template #display1>
             <div class="row">
-                <table  border="1"  style="width:100%">
+                <table  class="table-striped" border="1" style="width:100%">
                     <thead >
-                        <tr class="card-header">
-                            <td>STT</td>
-                            <td>Name</td>
-                            <td>Address</td>
-                            <td>Phone</td>
-                            <td>Ngày giờ đăng kí</td>
-                            <td>kinh độ</td>
-                            <td>Vĩ độ</td>
-                            <td>Image</td>
-                            <td>Actions</td>
+                        <tr>
+                            <th>STT</th>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Ngày giờ đăng kí</th>
+                            <th>kinh độ</th>
+                            <th>Vĩ độ</th>
+                            <th>Image</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>

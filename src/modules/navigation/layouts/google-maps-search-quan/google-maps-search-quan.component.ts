@@ -20,6 +20,8 @@ export class GoogleMapsSearchQuanComponent implements OnInit , OnDestroy{
     }
 
     ngOnInit() {
+        console.log(this.user);
+        
         console.log(this.listquans);
         this.hienVitricacquan(this.listquans);
         this.changeDetectorRef.detectChanges();
@@ -31,7 +33,8 @@ export class GoogleMapsSearchQuanComponent implements OnInit , OnDestroy{
     url= environment.url+"/api/v1/";
     @Input() listquans: any;
     @Input() hienthivitricuaminh: boolean=true;
-    
+    @Input() user: string="dashboard";
+
     hienVitricacquan(quans:any){
         if (!navigator.geolocation) {
             console.log('location is not supported');
@@ -79,7 +82,7 @@ export class GoogleMapsSearchQuanComponent implements OnInit , OnDestroy{
                         '<tr><td> địa chỉ :</td><td>' + quans[i].address + '</td></tr>' +
                         '<tr><td> số điện thoại :</td><td>' + quans[i].phone + '</td></tr>' +
                         '</tbody></table>' +
-                        '<a href="/dashboard/quans/' + quans[i].id + '">chọn sân này</a>'
+                        '<a href="/' + this.user+'/quans/' + quans[i].id + '">chọn sân này</a>'
                     );
                 }
   
@@ -92,7 +95,7 @@ export class GoogleMapsSearchQuanComponent implements OnInit , OnDestroy{
                         '<tr><td> địa chỉ :</td><td>' + quans[i].address + '</td></tr>' +
                         '<tr><td> số điện thoại :</td><td>' + quans[i].phone + '</td></tr>' +
                         '</tbody></table>' +
-                        '<a href="/dashboard/quans/' + quans[i].id + '">chọn sân này</a>'
+                        '<a href="/'+this.user+'/quans/' + quans[i].id + '">chọn sân này</a>'
                     );
                 }
                 L.circleMarker(latLong, { color: '#FF0000', center: [coords.latitude, coords.longitude] }).addTo(mymap).bindPopup('<strong>tôi đang ở đây </strong>');
