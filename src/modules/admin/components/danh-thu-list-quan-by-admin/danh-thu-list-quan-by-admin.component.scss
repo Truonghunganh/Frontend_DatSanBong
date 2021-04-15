@@ -1,4 +1,26 @@
 @import 'styles/variables.scss';
-td{
-    text-align: center;
+.border1{
+	text-align: center;
+    color:lightcyan;
+	background-color: forestgreen;
 }
+th {
+	color: lightcyan;
+	background-color:red;
+  text-align: center;
+}
+tbody{
+  background-color:#EEEEEE;
+}
+td{
+  text-align: center;
+  color: #222222;
+  font-size:14px;
+}
+.checked {
+  color: orange;
+}
+.nochecked{
+  color:white;
+}
+

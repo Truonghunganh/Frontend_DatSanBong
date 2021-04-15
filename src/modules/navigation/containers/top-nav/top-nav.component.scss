@@ -5,22 +5,19 @@ nav-background{
 .top{
 	height: 35px;
 	line-height: 5px;
-	background-color: #00CC00;
+	background-color: green;
 	color: White;
 }
-
-.preview__header {
-    font-size: 12px;
-    height: 54px;
-    background-color: #262626;
-    z-index: 100;
-    line-height: 54px;
-    margin-bottom: 1px;
+img {
+border-radius:50%;
+-moz-border-radius:50%;
+-webkit-border-radius:50%;
 }
 .bt{
 	float: right;
 	color: White;
 }
+
 .mauchu{
 	color:white;
 }

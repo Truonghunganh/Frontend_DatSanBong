@@ -26,21 +26,8 @@ export class DanhThuListQuanByAdminComponent implements OnInit {
         private changeDetectorRef: ChangeDetectorRef,
     ) { }
     ngOnInit() {
-        this.checkToken();
-    }
-    checkToken() {
-        this.authService.checkTokenAdmin().subscribe(data => {
-            if (!data.status) {
-                Swal.fire({
-                    icon: 'error',
-                    title: data.message,
-                });
-                this.router.navigate(['/auth/login'])
+        this.getDoanhThuListQuanByAdmin();
 
-            } else {
-                this.getDoanhThuListQuanByAdmin();
-            }
-        })
     }
     tinhtong(mang: any){
         let tong=0;

@@ -34,7 +34,7 @@ export class LayoutUser1Component implements OnInit, OnDestroy  {
                     icon: 'error',
                     title: data.message,
                 })
-                this.router.navigate(['/dashboard/quans']);
+                this.router.navigate(['/auth/login']);
             }
         })
     }

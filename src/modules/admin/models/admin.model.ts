@@ -24,3 +24,21 @@ export class Admin {
     }
 }
 
+export class User {
+    id: number;
+    name: string;
+    phone: string;
+    gmail: string;
+    address: string;
+    password: string;
+    constructor(id: number,name: string,phone:string, gmail: string, address: string, password: string) {
+        this.id=id;
+        this.name = name;
+        this.phone=phone;
+        this.gmail = gmail;
+        this.address = address;
+        this.password = password;
+
+    }
+}
+

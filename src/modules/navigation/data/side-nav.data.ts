@@ -67,7 +67,7 @@ export const sideNavSectionsA: SideNavSection[] = [
     },
     {
         text: 'MANAGER',
-        items: ['Admin', "DoanhThuListQuan", "DoanhThuCuaAdminTheoNam"],
+        items: ['Admin', "DoanhThuListQuan", "DoanhThuCuaAdminTheoNam","User","Innkeeper"],
     },
 
 ];
@@ -79,8 +79,8 @@ export const sideNavItemsA: SideNavItems = {
         link: '/admin/quans',
     },
     Admin: {
-        icon: 'user',
-        text: 'Admin',
+        // icon: 'user',
+        text: 'Danh sách các quán chưa duyệt',
         link: '/admin/admin',
     },
     DoanhThuListQuan: {
@@ -90,6 +90,16 @@ export const sideNavItemsA: SideNavItems = {
     DoanhThuCuaAdminTheoNam: {
         text: 'Doanh Thu Cua Admin Theo Nam',
         link: '/admin/doanhthucuaadmintheonam'
+    },
+    User: {
+        text:"Danh sách người dùng",
+        link:"/admin/users"
+    },
+    Innkeeper: {
+        text:"Danh sách các chủ quán",
+        link:"/admin/innkeepers"
     }
+
+
     //doanhthucuaadmintheonam
 };

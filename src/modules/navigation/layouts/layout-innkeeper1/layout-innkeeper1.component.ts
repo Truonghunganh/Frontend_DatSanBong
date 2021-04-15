@@ -1,3 +1,4 @@
+import { Innkeeper } from './../../../innkeeper/models/innkeeper.model';
 import { ChangeDetectionStrategy, Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import Swal from 'sweetalert2';
@@ -27,7 +28,7 @@ export class LayoutInnkeeper1Component implements OnInit, OnDestroy {
             console.log(data);
             
             if (data.status) {
-                this.user = data.user;
+                this.user = data.innkeeper;
                 this.changeDetectorRef.detectChanges();
                 console.log(this.user);
 
@@ -49,7 +50,7 @@ export class LayoutInnkeeper1Component implements OnInit, OnDestroy {
                 '<div><strong>' + this.user.phone + '</strong></div>' +
                 '<div><strong>' + this.user.address + '</strong></div>' +
                 '<div><strong>' + this.user.gmail + '</strong></div>' +
-                '<div><a href="/dashboard/edituser">chỉnh sữa thông tin</a></div>',
+                '<div><a href="/innkeeper/editinnkeeper">chỉnh sữa thông tin</a></div>',
             showCancelButton: true,
             confirmButtonText: "đăng xuất",
         }).then((result) => {

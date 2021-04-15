@@ -34,21 +34,8 @@ export class ListSansByIdQuanComponent implements OnInit {
     checkdatsans = false;
     ngOnInit() {
         this.idquan = Number(this.activatedRoute.snapshot.paramMap.get('idquan'));
-        this.checkTokenAdmin();
-    }
-    checkTokenAdmin() {
-        this.authService.checkTokenAdmin().subscribe(data => {
-            if (!data.status) {
-                Swal.fire({
-                    icon: 'error',
-                    title: data.message,
-                })
-                this.router.navigate(['/auth/login'])
-            } else {
-                this.ngayvagio = new Date().toISOString().slice(0, 10);
-                this.getDatSansvaSansByAdminAndIdquanAndNgay(this.idquan, this.ngayvagio);
-            }
-        })
+        this.ngayvagio = new Date().toISOString().slice(0, 10);
+        this.getDatSansvaSansByAdminAndIdquanAndNgay(this.idquan, this.ngayvagio);
     }
     chonngay(ngay: any) {
         this.ngayvagio = ngay.target.value;

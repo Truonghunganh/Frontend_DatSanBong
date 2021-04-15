@@ -1,17 +1,17 @@
 <sb-card>
-    <div class="card-header">
-        <h1 style="color:blue; text-align: center">
+    <div class="card-header border2">
+        <h5>
             Doanh thu theo năm
-        </h1>
+        </h5>
     </div>
     <div class="card-body">
         <sb-card>
-            <div class="card-header">
-                <h2 style="color:blue; text-align: center">
+            <div class="card-header border1">
+                <h6>
                     Doanh thu của năm :
                     <input type='number' min="2020" [(ngModel)]="nam" name="nam" max="2100">
-                    <input type="button" (click)="chonNam();" class="btn btn-success" value="Dữ liệu">
-                </h2>
+                    <input type="button" (click)="chonNam();" class="btn-success" value="Dữ liệu">
+                </h6>
             </div>
             <div class="card-body">
                 <sb-card>
@@ -42,8 +42,8 @@
                     </div>
                 </sb-card>
                 <sb-card>
-                    <div class="card-header">
-                        <h1 style="color:blue; text-align: center"> Doanh thu của các quán </h1>
+                    <div class="card-header border1">
+                        <h6> Doanh thu của các quán </h6>
                     </div>
                     <div class="card-body">
                         <div *ngIf="checkdoanhthusListQuanCuaMotNam then display; else loading"></div>
@@ -51,12 +51,12 @@
                             <table class="table table-striped" border="1">
                                 <thead class="thead-dark">
                                     <tr>
-                                        <td>STT</td>
-                                        <td>name quán</td>
-                                        <td>address quán</td>
-                                        <td>phone quán</td>
-                                        <td>Doanh thu của quán</td>
-                                        <td>Doanh thu của Admin</td>
+                                        <th>STT</th>
+                                        <th>name quán</th>
+                                        <th>address quán</th>
+                                        <th>phone quán</th>
+                                        <th>Doanh thu của quán</th>
+                                        <th>Doanh thu của Admin</th>
                                     </tr>
                                 </thead>
                                 <tbody>

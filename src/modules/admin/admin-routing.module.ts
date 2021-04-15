@@ -59,6 +59,16 @@ export const ROUTES: Routes = [
         canActivate: [],
         component: adminContainers.DashboardDoanhThuCuaAdminTheoNamComponent,
     },
+    {
+        path: 'users',
+        canActivate: [],
+        component: adminContainers.ĐashboardListUserComponent,
+    },
+    {
+        path: 'innkeepers',
+        canActivate: [],
+        component: adminContainers.ĐashboardListInnkeeperComponent,
+    },
 
 ];
 

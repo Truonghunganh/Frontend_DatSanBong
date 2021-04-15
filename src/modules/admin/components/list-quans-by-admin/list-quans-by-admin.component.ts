@@ -22,21 +22,13 @@ export class ListQuansByAdminComponent implements OnInit {
 
     ) { }
     ngOnInit() {
-        this.checktoken();
+        this.page=1;
+        this.getListquans(this.page);
     }
     url = environment.url;
 
-    listquansdapheduyet:any;
-    checklistquansdapheduyet=false;
-    checktoken() {
-        this.authService.checkTokenAdmin().subscribe(data => {
-            if (!data.status) {
-                this.router.navigate(['/auth/login']);
-            } else {
-                this.getListquans(this.page);
-            }
-        })
-    }
+    quans:any;
+    checkquans=false;
     page=1;
     tongpage=0;
     mangtrang: any;
@@ -67,13 +59,13 @@ export class ListQuansByAdminComponent implements OnInit {
         this.getListquans(this.page);
     }
     getListquans(page:number) {
-        this.checklistquansdapheduyet = false;
+        this.checkquans = false;
         this.dashboardService.getListQuansDaPheDuyetByTokenAdmin(page).subscribe(data => {
             if (data.status) {
-                this.listquansdapheduyet = data.quans;
+                this.quans = data.quans;
                 this.tongpage=data.tongpage;
                 this.taomangtrang(this.page);
-                this.checklistquansdapheduyet = true;
+                this.checkquans = true;
                 this.changeDetectorRef.detectChanges();
             }
             else {
@@ -133,4 +125,25 @@ export class ListQuansByAdminComponent implements OnInit {
             }
         });
     }
+    hienthivitricuaminh = true;
+    timkiem = "";
+    user="admin";
+    search() {
+        this.hienthivitricuaminh = false;
+        this.checkquans = false;
+        this.page = 1;
+        this.authService.searchListQuans(this.timkiem).subscribe(data => {
+            console.log(data);
+
+            if (data.status) {
+                this.quans = data.quans;
+                this.tongpage = data.tongpage;
+                this.taomangtrang(this.page);
+                this.checkquans = true;
+                this.changeDetectorRef.detectChanges();
+            }
+        })
+        this.timkiem = "";
+    }
+
 }

@@ -91,23 +91,8 @@ export class DanhThuOfQuanComponent implements OnInit {
     ngOnInit() {
         this.idquan = Number(this.activatedRoute.snapshot.paramMap.get('idquan'));
         console.log(this.idquan);
-        this.checkToken();
-    }
-    checkToken() {
-        this.authService.checkTokenAdmin().subscribe(data => {
-            if (!data.status) {
-                Swal.fire({
-                    icon: 'error',
-                    title: data.message,
-                });
-                this.router.navigate(['/auth/login'])
-
-            } else {
-                this.getDoanhThuByAdmin();
-                this.getTongDoanhCuaMotQuanThuTheoNamByAdmin(this.idquan, this.year);
-
-            }
-        })
+        this.getDoanhThuByAdmin();
+        this.getTongDoanhCuaMotQuanThuTheoNamByAdmin(this.idquan, this.year);
     }
     tongdoanhthu="";
     getDoanhThuByAdmin() {

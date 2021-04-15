@@ -12,9 +12,9 @@
             <div class="text-center">
                 <table style="width: 100%;">
                     <tr >
-                        <td  style="text-align: center; width: 50%;" rowspan="4">
+                        <td  style="text-align: center;" rowspan="4">
                             <div *ngIf="quan.image">
-                                <img style="width: 100%; " src="{{url+'/'+quan.image}}">
+                                <img style="width: 150px; " src="{{url+'/'+quan.image}}">
                             </div>
                             <div *ngIf="!quan.image">
                                 <img class="profile_img" src="../../../assets/img/avatar.jpg">
@@ -258,7 +258,7 @@
             </div>
 
         </div>
-        <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
+        <div class="card-body" >
             <div *ngIf="checkcomments; then display3; else loading3"></div>
             <ng-template #display3>
                 <div class="row">

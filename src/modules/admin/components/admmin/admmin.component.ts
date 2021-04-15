@@ -24,30 +24,15 @@ export class AdmminComponent implements OnInit {
 
     ) { }
     ngOnInit() {
-        this.checktoken();
+        this.page=1;
+        this.getListquans(this.page);
+
     }
     url = environment.url;
     checkadmin=false;
     admin:any;
     listquanschuapheduyet: any;
     checklistquanschuapheduyet = false;
-    checktoken() {
-        this.checkadmin= false;
-        this.authService.checkTokenAdmin().subscribe(data => {
-            if (!data.status) {
-                Swal.fire({
-                    icon: 'error',
-                    title: data.message,
-                });
-                this.router.navigate(['/auth/login']);
-            } else {
-                this.checkadmin=true;
-                this.admin=data.admin;
-                this.changeDetectorRef.detectChanges();   
-                this.getListquans(this.page);
-            }
-        })
-    }
     page = 1;
     tongpage = 0;
     mangtrang: any;

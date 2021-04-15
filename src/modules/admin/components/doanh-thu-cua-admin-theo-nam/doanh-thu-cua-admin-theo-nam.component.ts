@@ -79,18 +79,8 @@ export class DoanhThuCuaAdminTheoNamComponent implements OnInit {
         private changeDetectorRef: ChangeDetectorRef,
     ) { }
     ngOnInit() {
-        this.checkTokenAdmin();
-    }
-    checkTokenAdmin() {
-        this.authService.checkTokenAdmin().subscribe(data => {
-            if (!data.status) {
-                this.router.navigate(['/auth/login'])
-
-            } else {
-                this.getDoanhThuCuaAdminTheoNam(this.nam);
-                this.getDoanhThuListQuanCuaMotNamByAdmin(this.nam);
-            }
-        })
+        this.getDoanhThuCuaAdminTheoNam(this.nam);
+        this.getDoanhThuListQuanCuaMotNamByAdmin(this.nam);
     }
     checkdoanhthusListQuanCuaMotNam=false;
     doanhthusListQuanCuaMotNam: any;
@@ -121,8 +111,6 @@ export class DoanhThuCuaAdminTheoNamComponent implements OnInit {
     chonNam(){
         this.getDoanhThuCuaAdminTheoNam(this.nam);
         this.getDoanhThuListQuanCuaMotNamByAdmin(this.nam);
-
-        
     }
     tinhtongDoanhthucuuanam(mang: any) {
         let tong = 0;

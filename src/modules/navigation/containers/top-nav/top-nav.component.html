@@ -1,29 +1,19 @@
-<nav class="sb-topnav navbar-light top">
-    <strong >ĐẶT SÂN BÓNG ĐÁ</strong>
-    <fa-icon class="fa-2xng btn" id="sidebarToggle" style="color:white" 
-             data-cy="topNavToggleSideNav"
-         (click)="toggleSideNav()" [icon]='["fas", "bars"]'>
-    </fa-icon>
-        <!-- <button class="btn" id="sidebarToggle" 
-             data-cy="topNavToggleSideNav"
-         (click)="toggleSideNav()">
-            <fa-icon class="fa-2x" [icon]='["fas", "bars"]'>
-            </fa-icon>
-        </button>Navbar Search -->
-        
-        <button class="bt btn fa-2x " (click)="LogOut()">
-            Đăng xuất
-        </button>
-    <!-- <form class="d-none text-right d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+<nav class="sb-topnav row navbar navbar-expand top">
+    <a class="navbar-brand" routerLink="/dashboard/home">ĐẶT SÂN ĐÁ BÓNG</a>
+    <button class="btn  btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" style="color:white" data-cy="topNavToggleSideNav"
+        (click)="toggleSideNav()">
+        <fa-icon class="fa-2x" [icon]='["fas", "bars"]'></fa-icon>
+    </button><!-- Navbar Search-->
+    <button class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 border1 btn">
+        <img src="../../../../assets/img/avatar.jpg" (click)="thongtin()" style="width:30px; ">
+    </button>
+    <!-- <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div class="input-group">
-            <button class="bt text-right btn-outline-success" (click)="LogOut()" >
-                Đăng xuất
+            <button class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 border1 btn">
+                <img src="../../../../assets/img/avatar.jpg" (click)="thongtin()" style="width:30px; ">
             </button>
         </div>
-    </form>
- -->
-    <!-- Navbar-->
-    <!-- <ul class="navbar-nav ml-auto ml-md-0">
-        <sb-top-nav-user></sb-top-nav-user>
-    </ul> -->
+    </form> -->
+
+    
 </nav>

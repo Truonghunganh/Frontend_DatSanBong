@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AppCommonService } from '@common/services';
 import { catchError, map, tap } from 'rxjs/operators';
 import { environment } from "../../../environments/environment";
-import { Datsan, Admin } from '../models/admin.model';
+import { Datsan, Admin, User } from '../models/admin.model';
 import { AuthService } from '../../auth/services/auth.service'
 
 @Injectable()
@@ -105,6 +105,22 @@ export class AdminService {
     getAllCommentCuaMotQuanByAdmin(idquan: number): Observable<any> {
         return this.http.get<any>(environment.url + "/api/v1/getAllCommentCuaMotQuanByAdmin?idquan=" + idquan, this.appCommonService.httpOptions).
             pipe(tap(data => of(data)), catchError(this.appCommonService.errorHandler));
+    }
+    getUsersByAdmin(user:string,page:number): Observable<any> {
+        return this.http.get<any>(environment.url + "/api/v1/users?page=" + page+"&&user="+ user , this.appCommonService.httpOptions).pipe(
+            tap(data => of(data)), catchError(this.appCommonService.errorHandler)
+        )
+    }
+
+    editUserByAdmin(user: User): Observable<any> {
+        return this.http.put<any>(environment.url + "/api/v1/editUserByAdmin", user, this.appCommonService.httpOptions).pipe(
+            tap(data => of(data)), catchError(this.appCommonService.errorHandler)
+        )
+    }
+    searchUsersByAdmin(role: string, search: string): Observable<any> {
+        return this.http.get<any>(environment.url + "/api/v1/searchUsersByAdmin?role="+role+"&&search="+search, this.appCommonService.httpOptions).pipe(
+            tap(data => of(data)), catchError(this.appCommonService.errorHandler)
+        )
     }
 
 }

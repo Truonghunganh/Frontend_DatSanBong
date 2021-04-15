@@ -55,7 +55,7 @@ export class DashboardListquansComponent implements OnInit {
         this.hienthivitricuaminh=false;
         this.checkquans =false;
         this.page=1;
-        this.dashboardService.searchListQuans(this.timkiem).subscribe(data=>{
+        this.authService.searchListQuans(this.timkiem).subscribe(data=>{
             console.log(data);
             
             if (data.status) {

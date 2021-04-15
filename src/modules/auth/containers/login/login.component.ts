@@ -53,27 +53,27 @@ export class LoginComponent implements OnInit {
     }
     phone="";
     password="";
-    onSubmit(){
+    onSubmit(phone: string, password: string){
         this.checklogin = false;
-        const user = new User(this.phone, this.password);
+        const user = new User(phone, password);
         console.log(user);
         
-        // this.authService.login(user).subscribe(result => {
-        //     if (result.status) {
-        //         if (result.user.role == "user") this.router.navigate(['/dashboard/quans']);
-        //         if (result.user.role == "innkeeper") this.router.navigate(['/innkeeper/quans']);
-        //         if (result.user.role == "admin") this.router.navigate(['/admin/quans']);
+        this.authService.login(user).subscribe(result => {
+            if (result.status) {
+                if (result.user.role == "user") this.router.navigate(['/dashboard/quans']);
+                if (result.user.role == "innkeeper") this.router.navigate(['/innkeeper/quans']);
+                if (result.user.role == "admin") this.router.navigate(['/admin/quans']);
                 
-        //     } else {
-        //         this.checklogin = true;
-        //         Swal.fire({
-        //             icon: 'error',
-        //             text: 'số điện thoại hay mật khẩu sai !',
-        //         })
-        //         this.checklogin = true;
-        //         this.changeDetectorRef.detectChanges();
-        //     }
-        // })
+            } else {
+                this.checklogin = true;
+                Swal.fire({
+                    icon: 'error',
+                    text: 'số điện thoại hay mật khẩu sai !',
+                })
+                this.checklogin = true;
+                this.changeDetectorRef.detectChanges();
+            }
+        })
     }
     
 }

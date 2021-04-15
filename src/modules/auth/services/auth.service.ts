@@ -38,6 +38,12 @@ export class AuthService {
         )
     }
 
+    searchListQuans(search: string): Observable<any> {
+        return this.http.get<any>(environment.url + "/api/v1/searchListQuans?search=" + search, this.appCommonService.httpOptions).pipe(
+            tap(data => of(data)), catchError(this.appCommonService.errorHandler)
+        );
+    }
+
     checkTokenUser(): Observable<any>{
         return this.http.get<any>(environment.url + '/api/v1/checkTokenUser', this.appCommonService.httpOptions).pipe(
             tap(data => {
@@ -89,11 +95,6 @@ export class AuthService {
             .pipe(tap(data => { of(data); },
                 catchError(this.appCommonService.errorHandler)
             ));
-    }
-    searchListQuans(search: string): Observable<any> {
-        return this.http.get<any>(environment.url + "/api/v1/searchListQuans?search=" + search, this.appCommonService.httpOptions).pipe(
-            tap(data => of(data)), catchError(this.appCommonService.errorHandler)
-        );
     }
     checkTokenInnkeeper(): Observable<any> {
         return this.http.get<any>(environment.url + '/api/v1/checkTokenInnkeeper', this.appCommonService.httpOptions).pipe(

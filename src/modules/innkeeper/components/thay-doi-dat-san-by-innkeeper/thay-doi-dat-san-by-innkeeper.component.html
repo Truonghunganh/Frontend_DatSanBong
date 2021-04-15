@@ -9,13 +9,13 @@
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label red">Tên sân cần thay đổi</label>
                     <div class="col-lg-9">
-                        <input class="form-control" [(ngModel)]="tensanOld" required />
+                        <input disabled class="form-control" [(ngModel)]="tensanOld" required />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label red">Thời gian cần thay đổi</label>
                     <div class="col-lg-9">
-                        <input class="form-control" [(ngModel)]="timeOld" required />
+                        <input class="form-control" disabled [(ngModel)]="timeOld" required />
                     </div>
                 </div>
             </div>
@@ -59,68 +59,52 @@
                                 {{san.name}}
                             </td>
                             <td>
-                                <button *ngIf="mangDatsanOld[j][i][0]" (click)="chondatsanOld(0, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][0]" (click)="chondatsanOld(0, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][1]" (click)="chondatsanOld(1, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][1]" (click)="chondatsanOld(1, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][2]" (click)="chondatsanOld(2, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][2]" (click)="chondatsanOld(2, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][3]" (click)="chondatsanOld(3, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][3]" (click)="chondatsanOld(3, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][4]" (click)="chondatsanOld(4, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][4]" (click)="chondatsanOld(4, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][5]" (click)="chondatsanOld(5, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][5]" (click)="chondatsanOld(5, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][6]" (click)="chondatsanOld(6, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][6]" (click)="chondatsanOld(6, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td>
-                                <button *ngIf="mangDatsanOld[j][i][7]" (click)="chondatsanOld(7, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][7]" (click)="chondatsanOld(7, san.id,san.name)"  class="btdt">chọn</button>
                             </td>
                             <td>
-                                <button *ngIf="mangDatsanOld[j][i][8]" (click)="chondatsanOld(8, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][8]" (click)="chondatsanOld(8, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][9]" (click)="chondatsanOld(9, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][9]" (click)="chondatsanOld(9, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][10]" (click)="chondatsanOld(10, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][10]" (click)="chondatsanOld(10, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][11]" (click)="chondatsanOld(11, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][11]" (click)="chondatsanOld(11, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][12]" (click)="chondatsanOld(12, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][12]" (click)="chondatsanOld(12, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][13]" (click)="chondatsanOld(13, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][13]" (click)="chondatsanOld(13, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][14]" (click)="chondatsanOld(14, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][14]" (click)="chondatsanOld(14, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="mangDatsanOld[j][i][15]" (click)="chondatsanOld(15, san.id,san.name)" class="btdt">đã
-                                    đặt</button>
+                                <button *ngIf="mangDatsanOld[j][i][15]" (click)="chondatsanOld(15, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                         </tr>
                     </table>
@@ -143,13 +127,13 @@
                     <label class="col-lg-3 red col-form-label form-control-label">Tên sân mới
                     </label>
                     <div class="col-lg-9">
-                        <input class="form-control" [(ngModel)]="tensanNew" required />
+                        <input class="form-control" disabled [(ngModel)]="tensanNew" required />
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-lg-3 red col-form-label form-control-label">Thời gian mới</label>
                     <div class="col-lg-9">
-                        <input class="form-control" [(ngModel)]="timeNew" required />
+                        <input class="form-control"disabled [(ngModel)]="timeNew" required />
                     </div>
                 </div>
             </div>
@@ -194,68 +178,52 @@
                                 {{san.name}}
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][0]" (click)="chondatsanNew(0, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][0]" (click)="chondatsanNew(0, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][1]" (click)="chondatsanNew(1, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][1]" (click)="chondatsanNew(1, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][2]" (click)="chondatsanNew(2, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][2]" (click)="chondatsanNew(2, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][3]" (click)="chondatsanNew(3, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][3]" (click)="chondatsanNew(3, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][4]" (click)="chondatsanNew(4, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][4]" (click)="chondatsanNew(4, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][5]" (click)="chondatsanNew(5, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][5]" (click)="chondatsanNew(5, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][6]" (click)="chondatsanNew(6, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][6]" (click)="chondatsanNew(6, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][7]" (click)="chondatsanNew(7, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][7]" (click)="chondatsanNew(7, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][8]" (click)="chondatsanNew(8, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][8]" (click)="chondatsanNew(8, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][9]" (click)="chondatsanNew(9, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][9]" (click)="chondatsanNew(9, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][10]" (click)="chondatsanNew(10, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][10]" (click)="chondatsanNew(10, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][11]" (click)="chondatsanNew(11, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][11]" (click)="chondatsanNew(11, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][12]" (click)="chondatsanNew(12, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][12]" (click)="chondatsanNew(12, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][13]" (click)="chondatsanNew(13, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][13]" (click)="chondatsanNew(13, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][14]" (click)="chondatsanNew(14, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][14]" (click)="chondatsanNew(14, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                             <td >
-                                <button *ngIf="!mangDatsanNew[j][i][15]" (click)="chondatsanNew(15, san.id,san.name)" class="btdt">chưa
-                                    đặt</button>
+                                <button *ngIf="!mangDatsanNew[j][i][15]" (click)="chondatsanNew(15, san.id,san.name)" class="btdt">chọn</button>
                             </td>
                         </tr>
                     </table>

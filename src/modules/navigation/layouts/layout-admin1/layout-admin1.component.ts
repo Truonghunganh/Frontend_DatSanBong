@@ -24,10 +24,10 @@ export class LayoutAdmin1Component implements OnInit, OnDestroy {
     subscription: Subscription = new Subscription();
     user: any;
     ngOnInit() {
-        this.authService.checkTokenUser().subscribe(data => {
+        this.authService.checkTokenAdmin().subscribe(data => {
 
             if (data.status) {
-                this.user = data.user;
+                this.user = data.admin;
                 this.changeDetectorRef.detectChanges();
                 console.log(this.user);
 
@@ -36,7 +36,7 @@ export class LayoutAdmin1Component implements OnInit, OnDestroy {
                     icon: 'error',
                     title: data.message,
                 })
-                this.router.navigate(['/dashboard/quans']);
+                this.router.navigate(['/auth/login']);
             }
         })
     }
@@ -49,7 +49,7 @@ export class LayoutAdmin1Component implements OnInit, OnDestroy {
                 '<div><strong>' + this.user.phone + '</strong></div>' +
                 '<div><strong>' + this.user.address + '</strong></div>' +
                 '<div><strong>' + this.user.gmail + '</strong></div>' +
-                '<div><a href="/dashboard/edituser">chỉnh sữa thông tin</a></div>',
+                '<div><a href="/admin/editadmin">chỉnh sữa thông tin</a></div>',
             showCancelButton: true,
             confirmButtonText: "đăng xuất",
         }).then((result) => {
