@@ -24,7 +24,6 @@ export class GoogleMapsSearchQuanComponent implements OnInit , OnDestroy{
         
         console.log(this.listquans);
         this.hienVitricacquan(this.listquans);
-        this.changeDetectorRef.detectChanges();
         
        // this.getListquans();
         //this.checktoken()
@@ -100,6 +99,7 @@ export class GoogleMapsSearchQuanComponent implements OnInit , OnDestroy{
                 }
                 L.circleMarker(latLong, { color: '#FF0000', center: [coords.latitude, coords.longitude] }).addTo(mymap).bindPopup('<strong>tôi đang ở đây </strong>');
             }
+            this.changeDetectorRef.detectChanges();
 
         });
     }

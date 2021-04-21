@@ -12,7 +12,7 @@
             <div class="text-center">
                 <table style="width: 100%;">
                     <tr >
-                        <td  style="text-align: center;" rowspan="4">
+                        <td  style="text-align: center; width: 50%;" rowspan="4">
                             <div *ngIf="quan.image">
                                 <img style="width: 150px; " src="{{url+'/'+quan.image}}">
                             </div>
@@ -87,7 +87,7 @@
             <table class="table-striped table-dark" style="width:100%" border="1">
                 <thead class="border1">
                     <tr>
-                        <td style="width:4%;">tên sân</td>
+                        <td style="width:4%;">Tên Sân</td>
                         <td style="width:6%">5h</td>
                         <td style="width:6%">6h</td>
                         <td style="width:6%">7h</td>
@@ -109,87 +109,87 @@
                 <tbody>
                     <tr *ngFor="let san of sansTT ;index as i">
                         <td class="border1">
-                            {{san.name}}
+                            {{san.name | uppercase}}
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][0]"
                                 (click)="datsan(0,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][1]"
                                 (click)="datsan(1,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][2]"
                                 (click)="datsan(2,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][3]"
                                 (click)="datsan(3,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][4]"
                                 (click)="datsan(4,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][5]"
                                 (click)="datsan(5,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][6]"
                                 (click)="datsan(6,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][7]"
                                 (click)="datsan(7,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][8]"
                                 (click)="datsan(8,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][9]"
                                 (click)="datsan(9,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][10]"
                                 (click)="datsan(10,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][11]"
                                 (click)="datsan(11,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][12]"
                                 (click)="datsan(12,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][13]"
                                 (click)="datsan(13,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][14]"
                                 (click)="datsan(14,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
                         <td style="background-color: #41c04d;">
                             <button *ngIf="!mangDatsan[i][15]"
                                 (click)="datsan(15,san.id,san.priceperhour,san.name,san.numberpeople)"
-                                class="border1">đặt</button>
+                                class="border1">Đặt</button>
                         </td>
 
                     </tr>
@@ -222,16 +222,16 @@
                         <div class="card-body" style="background-color:#41c04d;">
                             <table class="table">
                                 <tr>
-                                    <td>tên sân</td>
+                                    <td>Tên sân</td>
                                     <td> <strong>{{ san.name }}</strong></td>
                                 </tr>
                                 <tr>
-                                    <td>số người trong 1 phe</td>
-                                    <td><strong>{{ san.numberpeople}}</strong></td>
+                                    <td>Loại sân</td>
+                                    <td><strong> Sân &ensp;{{ san.numberpeople}}</strong></td>
                                 </tr>
                                 <tr>
-                                    <td>số tiền trong 1 giờ</td>
-                                    <td><strong>{{ san.priceperhour }}</strong></td>
+                                    <td>Chi phí</td>
+                                    <td><strong>{{ san.priceperhour }} vnd/giờ</strong></td>
                                 </tr>
                             </table>
                         </div>

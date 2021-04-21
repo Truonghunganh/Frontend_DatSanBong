@@ -28,7 +28,7 @@ export class InnkeeperService {
             tap(data => {
                 console.log(data);
                 if (data.status) {
-                    this.authService.setToken(data.token);
+                    this.appCommonService.setToken(data.token);
                 }
 
                 of(data)

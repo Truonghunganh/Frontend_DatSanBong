@@ -23,7 +23,8 @@ export class LayoutUser1Component implements OnInit, OnDestroy  {
     user:any;
     ngOnInit() {
         this.authService.checkTokenUser().subscribe(data => {
-
+            console.log(data);
+            
             if (data.status) {
                 this.user = data.user;
                 this.changeDetectorRef.detectChanges();

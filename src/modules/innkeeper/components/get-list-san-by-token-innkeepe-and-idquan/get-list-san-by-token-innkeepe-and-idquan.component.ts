@@ -19,6 +19,7 @@ export class GetListSanByTokenInnkeepeAndIdquanComponent implements OnInit {
         private changeDetectorRef: ChangeDetectorRef,
         private authService: AuthService,
     ) { }
+
     idquan = 1;
     sans: any;
     quan: any;
@@ -53,6 +54,10 @@ export class GetListSanByTokenInnkeepeAndIdquanComponent implements OnInit {
                 this.getDatSansvaSansByInnkeeperAndIdquanAndNgay(this.idquan, this.ngayvagio);
             }
         })
+    }
+    chon(san:any){
+        console.log(san.id);
+        
     }
     chonngay(ngay: any) {
         this.ngayvagio = ngay.target.value;
@@ -129,7 +134,13 @@ export class GetListSanByTokenInnkeepeAndIdquanComponent implements OnInit {
     hienthongtindatsan(datsan:any,san:any){
         console.log(datsan);
         Swal.fire({
-            html: '<h1 style="color: #41c04d;">thông tin người đặt sân của người dùng</h1><table style="width: 100%;" border="1"><tr><td>tên người đặt </td><td>' + datsan.user.name + '</td></tr><tr><td>Số điện thoại người đặt </td><td>' + datsan.user.phone + '</td></tr><tr><td>tên sân </td><td>' + san.name + '</td></tr><tr><td>số người </td><td>' + san.numberpeople + '</td></tr><tr><td>số tiền thanh toán</td><td>' + san.priceperhour + '</td></tr><tr><td>giờ đặt</td><td>' +datsan.start_time + '</td></tr></table>',
+            html: '<h1 style="color: #41c04d;">thông tin người đặt sân của người dùng</h1><table style="width: 100%;" border="1"><tr><td>Tên khách hàng </td><td>' + 
+            datsan.user.name + '</td></tr><tr><td>Số điện thoại khách hàng </td><td>' + 
+            datsan.user.phone + '</td></tr><tr><td>Tên sân </td><td>' + 
+            san.name + '</td></tr><tr><td>Số người </td><td>' + 
+            san.numberpeople + '</td></tr><tr><td>Số tiền thanh toán</td><td>' + 
+            san.priceperhour + '</td></tr><tr><td>Giờ đặt sân</td><td>' +datsan.start_time +
+             '</td></tr></table>',
             confirmButtonText: `Ok`,
         })
         

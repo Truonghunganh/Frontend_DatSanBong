@@ -52,7 +52,7 @@ export class AdminService {
         return this.http.put<any>(environment.url + "/api/v1/editAdminByToken", admin, this.appCommonService.httpOptions).pipe(
             tap(data => {
                 if (data.status) {
-                    this.authService.setToken(data.token);
+                    this.appCommonService.setToken(data.token);
                 }
                 of(data)
             }), catchError(this.appCommonService.errorHandler)

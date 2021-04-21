@@ -1,6 +1,6 @@
 <sb-card>
-    <div class="card-header">
-        <h1 style="color:blue; text-align: center;">Chỉnh sữa thông tin cá nhân của Admin</h1>
+    <div class="card-header border1">
+        <h6>Chỉnh sữa thông tin người dùng </h6>
     </div>
     <div class="card-body">
         <div *ngIf="checkadmin; then display ; else loading"></div>
@@ -38,7 +38,7 @@
                     <div class="form-group row">
                         <label class="col-lg-2 col-form-label form-control-label">Mật khẩu</label>
                         <div class="col-lg-9">
-                            <input class="form-control" #password name="admin.phone" [(ngModel)]="admin.phone" required
+                            <input class="form-control" #password required
                                 placeholder="Password" />
                         </div>
                     </div>

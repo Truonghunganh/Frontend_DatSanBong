@@ -3,6 +3,7 @@ import { DashboardService } from '../../services/dashboard.service';
 import {  Router } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service'
 import Swal from 'sweetalert2';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -12,8 +13,6 @@ import Swal from 'sweetalert2';
     styleUrls: ['user.component.scss'],
 })
 export class UserComponent implements OnInit {
-    user: any;
-    checkuser = false;
     ListDatSanByIduservaonhungngaytoi: any;
     checklistdansan = false;
     constructor(
@@ -23,26 +22,7 @@ export class UserComponent implements OnInit {
         private authService: AuthService
     ) { }
     ngOnInit() {
-        this.checkTokenUser();
-    }
-    checkTokenUser(){
-        this.checkuser=false;
-        this.authService.checkTokenUser().subscribe(data=>{
-           
-            if (data.status) {
-                this.user = data.user;
-                this.checkuser=true;
-                this.changeDetectorRef.detectChanges();
-                this.getListDatSanByUserToken();
- 
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: data.message,
-                })
-                this.router.navigate(['/dashboard/quans']);
-            }
-        })
+        this.getListDatSanByUserToken();
     }
     
     getListDatSanByUserToken() {
@@ -146,7 +126,16 @@ export class UserComponent implements OnInit {
         
     }
     deleteDatSan(datsan:any){
-        console.log(datsan);
+       let a= new Date().toISOString().
+            replace(/T/, ' ').  
+            replace(/\..+/, '');
+        // if (!(this.ngayvagio > formatDate(new Date(), 'yyyy-MM-dd HH:mm:ss', 'en-US'))) {
+        //     Swal.fire({
+        //         icon: 'error',
+        //         text: 'ngày giờ đặt sân trước ngày giờ hiện tại',
+        //     })
+        // }
+        console.log(datsan,a);
         Swal.fire({
             html: '<h1 style="color: #41c04d;">Bạn có muốn xóa đặt sân này không</h1><table style="width: 100%;" border="1"><tr><td>tên quán </td><td>' + datsan.nameQuan + '</td></tr><tr><td>Địa chỉ quán </td><td>' + datsan.addressQuan + '</td></tr><tr><td>Số điện Thoại Quán </td><td>' + datsan.phoneQuan + '</td></tr><tr><td>tên sân </td><td>' + datsan.nameSan + '</td></tr><tr><td>số người </td><td>' + datsan.numberpeople + '</td></tr><tr><td>số tiền thanh toán</td><td>' + datsan.price + '</td></tr><tr><td>giờ đặt</td><td>' + datsan.time + '</td></tr><tr><td>xác nhận chủ quán</td><td>' + datsan.xacnhan + '</td></tr></table>',
             showCancelButton: true,
@@ -161,7 +150,7 @@ export class UserComponent implements OnInit {
                             title: 'Xóa thành công',
                             showConfirmButton: false,
                             timer: 1500
-                        });
+                        });       
                         this.getListDatSanByUserToken();
                     }
                     else {

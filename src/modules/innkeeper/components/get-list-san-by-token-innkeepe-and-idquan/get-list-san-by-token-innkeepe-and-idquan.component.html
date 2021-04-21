@@ -14,9 +14,9 @@
             <div class="text-center">
                 <table style="width: 100%;">
                     <tr>
-                        <td style="text-align: center;" rowspan="4">
+                        <td style="text-align: center; width: 50%" rowspan="4">
                             <div *ngIf="quan.image">
-                                <img style="width: 150px; " src="{{url+'/'+quan.image}}">
+                                <img style="width: 40%; " src="{{url+'/'+quan.image}}">
                             </div>
                             <div *ngIf="!quan.image">
                                 <img class="profile_img" src="../../../assets/img/avatar.jpg">
@@ -118,58 +118,52 @@
                             {{san.name}}
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][0]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][0],san)">đã đặt</button>
+                            <button *ngIf="mangDatsan[i][0]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][0],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][1]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][1],san)">đã đặt</button>
+                            <button *ngIf="mangDatsan[i][1]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][1],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][2]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][2],san)">đã đặt</button>
+                            <button *ngIf="mangDatsan[i][2]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][2],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][3]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][3],san)">đã đặt</button>
+                            <button *ngIf="mangDatsan[i][3]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][3],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][4]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][4],san)">đã đặt</button>
+                            <button *ngIf="mangDatsan[i][4]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][4],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][5]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][5],san)">đã đặt</button>
+                            <button *ngIf="mangDatsan[i][5]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][5],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][6]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][6],san)">đã đặt</button>
+                            <button *ngIf="mangDatsan[i][6]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][6],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][7]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][7],san)">đã đặt</button>
+                            <button *ngIf="mangDatsan[i][7]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][7],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][8]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][8],san)">đã đặt</button>
+                            <button *ngIf="mangDatsan[i][8]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][8],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][9]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][9],san)">đã đặt</button>
+                            <button *ngIf="mangDatsan[i][9]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][9],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][10]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][10],san)">đã
-                                đặt</button>
+                            <button *ngIf="mangDatsan[i][10]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][10],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][11]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][11],san)">đã
-                                đặt</button>
+                            <button *ngIf="mangDatsan[i][11]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][11],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][12]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][12],san)">đã
-                                đặt</button>
+                            <button *ngIf="mangDatsan[i][12]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][12],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][13]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][13],san)">đã
-                                đặt</button>
+                            <button *ngIf="mangDatsan[i][13]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][13],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][14]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][14],san)">đã
-                                đặt</button>
+                            <button *ngIf="mangDatsan[i][14]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][14],san)">Chọn</button>
                         </td>
                         <td style="background-color: #41c04d;">
-                            <button *ngIf="mangDatsan[i][15]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][15],san)">đã
-                                đặt</button>
+                            <button *ngIf="mangDatsan[i][15]" class="btdt" (click)="hienthongtindatsan(mangDatsan[i][15],san)">Chọn</button>
                         </td>
 
                     </tr>
@@ -199,36 +193,31 @@
                         <div class="card-header border1">
                             <h6>{{i+1}}</h6>
                         </div>
-                        <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
-                            <table class="table">
-                                <tr>
-                                    <td>tên sân</td>
-                                    <td> <strong>{{ san.name }}</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>số người trong 1 phe</td>
-                                    <td><strong>{{ san.numberpeople}}</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>số tiền trong 1 giờ</td>
-                                    <td><strong>{{ san.priceperhour }}</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="custom-control custom-switch">
-                                            <input [checked]="san.trangthai" type="checkbox" class="custom-control-input" id="status">
-                                            <label class="custom-control-label" type='hidden' for="status">
-                                            </label>
-                                        </div>
-                                        <button class="btn btn-success" (click)="thaydoi(san.id,san.trangthai)">thay đổi</button>
-                                    </td>
-                                    <td>
-                                        <fa-icon routerLink="/innkeeper/editSan/{{san.id}}" class='fas fa-2x' [icon]='["fas","edit"]'></fa-icon>
-                                    </td>
-                                    
-                                </tr>
-                            </table>
-                        </div>
+                        <table class="table" style="background-color:#41c04d;color:lightcyan;">
+                            <tr>
+                                <td>Tên sân</td>
+                                <td> <strong>{{ san.name }}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Loại sân</td>
+                                <td><strong> Sân &ensp;{{ san.numberpeople}}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Chi phí</td>
+                                <td><strong>{{ san.priceperhour }} vnd/giờ</strong></td>
+                            </tr>
+                            <tr class="bi bi-align-center">
+                                <td class="custom-control custom-switch">
+                                    <input [checked]="san.trangthai" type="checkbox" class="custom-control-input">
+                                    <label class="custom-control-label" (click)="thaydoi(san.id,san.trangthai)" for="status">
+                                    </label>
+                                </td>
+                                <td>
+                                    <fa-icon routerLink="/innkeeper/editSan/{{san.id}}" class='fas' [icon]='["fas","edit"]'></fa-icon>
+                                </td>
+                        
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -48,8 +48,10 @@ export class EditAdmminComponent implements OnInit {
 
     }
     Edit(name: string, gmail: string, address: string, password: string) {
+        console.log(password);
+        
         Swal.fire({
-            title: "Do you want to save the changes?",
+            title: "bạn có muốn thay đổi thông tin này không?",
             showCancelButton: true,
             confirmButtonText: 'Save',
         }).then((result) => {

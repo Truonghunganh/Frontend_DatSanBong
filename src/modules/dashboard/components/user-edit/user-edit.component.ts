@@ -70,23 +70,35 @@ export class UserEditComponent implements OnInit {
     Save(name: string,gmail: string,address: string,password: string){
         console.log(name,gmail,address,password);
         const user =new User(name,gmail,address,password);
-        this.dashboardService.editUserByToken(user).subscribe(data=>{
-            if (data.status) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Your work has been saved',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                this.router.navigate(['/dashboard/user'])
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: data.message,
-                })
+        Swal.fire({
+            title: "bạn có muốn thay đổi thông tin này không?",
+            showCancelButton: true,
+            confirmButtonText: 'Save',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                this.dashboardService.editUserByToken(user).subscribe(data => {
+                    console.log(data);
+                    
+                    if (data.status) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Your work has been saved',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        this.changeDetectorRef.detectChanges();
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: data.message,
+                        })
 
+                    }
+                })
             }
         })
+
+        
         
     }
 }

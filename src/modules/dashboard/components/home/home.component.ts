@@ -2,7 +2,9 @@ import { ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef } from '@
 import { DashboardService } from "../../services/dashboard.service";
 import { environment } from './../../../../environments/environment';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../auth/services/auth.service'
+import { AuthService } from '../../../auth/services/auth.service';
+import { AppCommonService } from '../../../app-common/services'
+
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,24 +15,30 @@ import Swal from 'sweetalert2';
 })
 export class HomeComponent implements OnInit {
     constructor(
+        private dashboardService:DashboardService,
         private authService: AuthService,
         private router: Router,
-        private changeDetectorRef: ChangeDetectorRef
+        private changeDetectorRef: ChangeDetectorRef,
+        private appCommonService: AppCommonService
 
     ) { }
     quans: any;
     checkquans = false;
     url = environment.url;
     urlCLU = environment.urlCLU;
+    isLoggedIn = false;
     ngOnInit() {
         this.getListquans();
+        if (this.appCommonService.getToken() != 1) {
+            this.isLoggedIn = true;
+        }
     }
 
     mangreview = new Array();
     getListquans() {
         this.checkquans = false;
         this.page=1;
-        this.authService.getListQuans().subscribe(data => {
+        this.dashboardService.getListQuansByTrangthaiChoHome().subscribe(data => {
             console.log(data);
 
             if (data.status) {

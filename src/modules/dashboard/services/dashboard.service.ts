@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AppCommonService } from '@common/services';
@@ -15,16 +15,16 @@ export class DashboardService {
         private authService: AuthService
         ) {}
 
-    getListQuans(): Observable<any>{
+    getListQuansChoUser(): Observable<any>{
         return this.http.get<any>(environment.url + "/api/v1/quan",this.appCommonService.httpOptions)
             .pipe(tap(data => {of(data);},
                 catchError(this.appCommonService.errorHandler)
                 ));
     }
-    getAllQuanDangHoatdongByUser(): Observable<any>{
-        return this.http.get<any>(environment.url + "/api/v1/getAllQuanDangHoatdongByUser",this.appCommonService.httpOptions).
-            pipe(tap(data =>of(data)), catchError(this.appCommonService.errorHandler))
-    }
+    // getAllQuanDangHoatdongByUser(): Observable<any>{
+    //     return this.http.get<any>(environment.url + "/api/v1/getAllQuanDangHoatdongByUser",this.appCommonService.httpOptions).
+    //         pipe(tap(data =>of(data)), catchError(this.appCommonService.errorHandler))
+    // }
     getQuanByIdAndTokenUser(id: number): Observable<any>{
         return this.http.post<any>(environment.url + "/api/v1/getQuanByIdAndTokenUser",{"idquan":id},this.appCommonService.httpOptions)
                 .pipe(tap(data => of(data)), catchError(this.appCommonService.errorHandler));
@@ -55,15 +55,23 @@ export class DashboardService {
             tap(data => of(data)),catchError(this.appCommonService.errorHandler)
         );
     }
-    
+    getListQuansByTrangthaiChoHome(): Observable<any> {
+        return this.http.get<any>(environment.url + "/api/v1/getListQuansByTrangthaiChoHome")
+            .pipe(tap(data => { of(data); },
+                catchError(this.appCommonService.errorHandler)
+            ));
+    }
+
     editUserByToken(user: User): Observable<any>{
         return this.http.put<any>(environment.url + "/api/v1/editUserByToken",user,this.appCommonService.httpOptions).pipe(
             tap(data => { 
                 console.log(data);
                 if (data.status) {
-                    this.authService.setToken(data.token);                    
+                    this.appCommonService.setToken(data.token);
+                    console.log(data.token);
+                    console.log(this.appCommonService.getToken());
+                    
                 }
-                
                 of(data)} )
             ,catchError(this.appCommonService.errorHandler)
         )

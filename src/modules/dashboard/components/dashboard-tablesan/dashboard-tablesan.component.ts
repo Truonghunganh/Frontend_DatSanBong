@@ -36,21 +36,7 @@ export class DashboardTablesanComponent implements OnInit {
         this.idquan = Number(this.activatedRoute.snapshot.paramMap.get('idquan'));
         this.ngayvagio = new Date().toISOString().slice(0, 10);
         this.getDatSansvaSansByUserAndIdquanAndNgay(this.idquan, this.ngayvagio);
-        //this.checktoken();
     }
-    // checktoken() {
-    //     this.authService.checkTokenUser().subscribe(data => {
-    //         console.log(data);
-            
-    //         if (!data.status) {
-    //             this.router.navigate(['/auth/login']);
-    //         } else {
-    //             this.idquan = Number(this.activatedRoute.snapshot.paramMap.get('idquan'));
-    //             this.ngayvagio = new Date().toISOString().slice(0, 10);
-    //             this.getDatSansvaSansByUserAndIdquanAndNgay(this.idquan, this.ngayvagio);
-    //         }
-    //     })
-    // }
     chonngay(ngay :any){
         this.ngayvagio = ngay.target.value;
         console.log(ngay.target.value);
@@ -95,7 +81,7 @@ export class DashboardTablesanComponent implements OnInit {
             // this.changeDetectorRef.detectChanges();
 
         } else {
-            this.strNutReview = "review";
+            this.strNutReview = "Review";
             this.dashboardService.reviewByUser(this.idquan, this.reviewuser).subscribe(data => {
                 if (data.status) {
                     Swal.fire({
@@ -104,6 +90,7 @@ export class DashboardTablesanComponent implements OnInit {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    this.getDatSansvaSansByUserAndIdquanAndNgay(this.idquan, this.ngayvagio);
                 } else {
                     Swal.fire({
                         icon: 'error',
@@ -115,7 +102,7 @@ export class DashboardTablesanComponent implements OnInit {
         
     }
     nutReview=false;
-    strNutReview="review";
+    strNutReview="Review";
     chonreview(review: number){
         console.log(review);
         
@@ -206,7 +193,7 @@ export class DashboardTablesanComponent implements OnInit {
         }else{
             Swal.fire({
                 html: '<h1 style="color: #41c04d;">thông tin sân mà bạn muốn đặt</h1><table style="width: 100%;" border="1"><tr><td>tên quán </td><td>' + this.quan.name + '</td></tr><tr><td>tên sân </td><td>' + namesan + '</td></tr><tr><td>số người </td><td>' + numberpeople + '</td></tr><tr><td>số tiền thanh toán</td><td>' + priceperhour + '</td></tr><tr><td>giờ đặt</td><td>' + this.ngayvagio + '</td></tr></table>',
-                showCancelButton: true,
+                // showCancelButton: true,
                 confirmButtonText: `thanh toán`,
             }).then(result => {
                 if (result.value) {

@@ -9,10 +9,23 @@ export class AppCommonService {
     constructor(@Inject(LOCAL_STORAGE) private storage: WebStorageService) {}
     public httpOptions = {
         headers: new HttpHeaders({
+            // 'token': this.storage.get('token')
             'token': JSON.parse(this.storage.get('token')),
         }),
     };
-   
+    getToken(){
+        return this.storage.get('token');
+    }
+    setToken(token: string) {
+        this.storage.set('token', JSON.stringify(token));
+
+        this.httpOptions = {
+            headers: new HttpHeaders({
+                'token': JSON.parse(this.storage.get('token')),
+            }),
+        };
+    }
+
     getAppCommon$(): Observable<{}> {
         return of({});
     }

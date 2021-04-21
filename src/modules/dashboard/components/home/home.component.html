@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <nav class="navbar navbar-md">
                 <div class="navbar-brand">ĐẶT SÂN ĐÁ BANH</div>
-                <ul class="nav" >
+                <ul class="nav"  *ngIf="!isLoggedIn">
                     <li class="nav-item">
                         <a class="nav-link" style="color:lightcyan" href="/auth/login">Đăng nhập</a>
                     </li>
@@ -59,25 +59,14 @@
                             <div class="card">
                                 <div class="card-header border1">
                                     <div *ngIf="quan.image">
-                                        <img class="card-img-top" style="display: block;" src="{{url+'/'+quan.image}}"
-                                            alt="Card image cap">
+                                        <img class="card-img-top" style="display: block;" src="{{url+'/'+quan.image}}" alt="Card image cap">
                                     </div>
                                     <div *ngIf="!quan.image">
-                                        <img class="card-img-top" style="display: block;"
-                                            src="../../../assets/img/avatar.jpg" alt="Card image cap">
+                                        <img class="card-img-top" style="display: block;" src="../../../assets/img/avatar.jpg" alt="Card image cap">
                                     </div>
                                 </div>
                                 <div style="background-color:#41c04d;color:lightcyan;">
                                     <table class="table mauchu">
-                                        <tr style="height: 30px;">
-                                            <td> <strong>{{ quan.name }}</strong></td>
-                                        </tr>
-                                        <tr style="height: 30px;">
-                                            <td><strong>{{ quan.phone}}</strong></td>
-                                        </tr>
-                                        <tr style="height: 70px;">
-                                            <td><strong>{{ quan.address }}</strong></td>
-                                        </tr>
                                         <tr>
                                             <td>
                                                 <div style="text-align: center;">
@@ -94,6 +83,16 @@
                                                 </div>
                                             </td>
                                         </tr>
+                                        <tr style="height: 30px;">
+                                            <td> <strong>{{ quan.name }}</strong></td>
+                                        </tr>
+                                        <tr style="height: 30px;">
+                                            <td><strong>{{ quan.phone}}</strong></td>
+                                        </tr>
+                                        <tr style="height: 70px;">
+                                            <td><strong>{{ quan.address }}</strong></td>
+                                        </tr>
+                                        
                                     </table>
                                 </div>
                             </div>

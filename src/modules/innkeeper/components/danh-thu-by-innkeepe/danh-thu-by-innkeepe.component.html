@@ -75,10 +75,10 @@
                     <ng-template #display>
                         <table style="width: 100%;" border="1">
                             <tr>
-                                <td style="width: 10%;">STT</td>
-                                <td style="width: 30%;">Doanh Thu</td>
-                                <td style="width: 30%;">ngày</td>
-                                <td style="width: 30%;">Chi tiết</td>
+                                <th style="width: 10%;">STT</th>
+                                <th style="width: 30%;">Doanh Thu</th>
+                                <th style="width: 30%;">ngày</th>
+                                <th style="width: 30%;">Chi tiết</th>
                             </tr>
                             <tr *ngFor="let doanhthu of doanhthus ; index as i">
                                 <td>
@@ -110,7 +110,7 @@
             </sb-card>
             <sb-card>
                 <div class="card-header border2">
-                    <h6> Doanh thu của năm : <input type='number' min="2020" [(ngModel)]="year" name="year" max="2100"
+                    <h6 style="text-align: center;"> Doanh thu của năm : <input type='number' min="2020" [(ngModel)]="year" name="year" max="2100"
                             (change)="chonNam();">
                     </h6>
                     <h6>Dạng biểu đồ :{{dangBD}}

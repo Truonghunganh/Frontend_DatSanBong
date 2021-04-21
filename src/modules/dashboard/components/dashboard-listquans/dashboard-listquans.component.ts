@@ -30,9 +30,7 @@ export class DashboardListquansComponent implements OnInit {
     getListquans() {
         this.checkquans= false;
         
-        this.dashboardService.getListQuans().subscribe(data=>{
-            console.log(data);
-            
+        this.dashboardService.getListQuansChoUser().subscribe(data=>{
             if(data.status){
                 this.quans=data.quans;
                 for (let i = 0; i < this.quans.length; i++) {

@@ -40,9 +40,9 @@ export class InnkeeperEditComponent implements OnInit {
     }
     Edit(name: string, gmail: string, address: string, password: string){
         Swal.fire({
-            title: "Do you want to save the changes?",
-            showCancelButton: true,
-            confirmButtonText: 'Save',
+            title: "bạn có muốn thay đổi thông tin này không?",
+            //showCancelButton: true,
+            confirmButtonText: 'Lưu',
         }).then((result) => {
             if (result.isConfirmed) {
                 const innkeeper=new Innkeeper(name,gmail,address,password);
@@ -52,7 +52,7 @@ export class InnkeeperEditComponent implements OnInit {
                         if(data.status){
                             Swal.fire({
                                 icon: 'success',
-                                title: 'Your work has been saved',
+                                title: 'đã lưu thông tin thành công',
                                 showConfirmButton: false,
                                 timer: 1500
                             });

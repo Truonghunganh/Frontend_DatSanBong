@@ -11,13 +11,23 @@
  	background-color:#41c04d;
   color:lightcyan;
 }
-td{
-  text-align: center;
-  color: red;
-}
 .checked {
   color: orange;
 }
 .nochecked{
   color:white;
 }
+th {
+	color: lightcyan;
+	background-color:red;
+  text-align: center;
+}
+tbody{
+  background-color:#EEEEEE;
+}
+td{
+  text-align: center;
+  color: #222222;
+  font-size:14px;
+}
+

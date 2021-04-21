@@ -26,7 +26,8 @@ export class TopNavComponent implements OnInit {
     user: any;
     ngOnInit() {
         this.authService.checkTokenAdmin().subscribe(data => {
-
+            console.log(data);
+            
             if (data.status) {
                 this.user = data.admin;
                 this.changeDetectorRef.detectChanges();

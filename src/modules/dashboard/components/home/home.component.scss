@@ -4,10 +4,6 @@
   margin-right: auto;
  
 }
-.border1{
-	color:lightcyan;
-	background-color: forestgreen;
-}
 td{
   text-align: center;
 }
@@ -17,10 +13,12 @@ td{
 }
 img{
   // display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  height: 12rem;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+  // width: 80%;
+   height: 14rem;
 }
 body{
 	margin:0;
@@ -102,13 +100,6 @@ body{
 }
 .mauchu{
   color:lightcyan;
-}
-img{
-  // display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  height: 12rem;
 }
 tr{
   text-align: center;
