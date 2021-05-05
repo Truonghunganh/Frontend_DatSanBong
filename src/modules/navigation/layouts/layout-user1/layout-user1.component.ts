@@ -21,15 +21,13 @@ export class LayoutUser1Component implements OnInit, OnDestroy  {
     }
     subscription: Subscription = new Subscription();
     user:any;
+    checkuser=false;
     ngOnInit() {
         this.authService.checkTokenUser().subscribe(data => {
-            console.log(data);
-            
             if (data.status) {
                 this.user = data.user;
+                this.checkuser=true;
                 this.changeDetectorRef.detectChanges();
-                console.log(this.user);
-                
             } else {
                 Swal.fire({
                     icon: 'error',
@@ -42,20 +40,8 @@ export class LayoutUser1Component implements OnInit, OnDestroy  {
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }
-    thongtin(){
-        Swal.fire({
-            html: '<div><strong>'+this.user.name+'</strong></div>'+
-                '<div><strong>' + this.user.phone + '</strong></div>'+
-                '<div><strong>'+this.user.address + '</strong></div>'+
-                '<div><strong>' + this.user.gmail + '</strong></div>' +
-                '<div><a href="/dashboard/edituser">chỉnh sữa thông tin</a></div>', 
-            showCancelButton: true,
-            confirmButtonText: "đăng xuất",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                this.authService.logout();
-            }                      
-        });
-
+    dangxuat(){
+        this.authService.logout();
     }
+    
 }

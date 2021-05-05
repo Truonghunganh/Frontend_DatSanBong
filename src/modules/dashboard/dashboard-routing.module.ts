@@ -41,7 +41,7 @@ export const ROUTES: Routes = [
         component: dashboardContainers.DashboardUserComponent,
     },
     {
-        path: 'edituser',
+        path: 'editUser',
         canActivate: [],
         component: dashboardContainers.DashboardUserEditComponent,
     },

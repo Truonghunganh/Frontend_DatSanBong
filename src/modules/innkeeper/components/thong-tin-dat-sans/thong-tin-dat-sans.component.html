@@ -1,20 +1,34 @@
+<head>
+    <title>Bootstrap Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<br>
+<div class="header">
+    <h3><strong>Thông tin đặt sân</strong></h3>
+</div>
 <sb-card>
-    <div class="card-header border1">
-        <h5 >Thông tin đặt sân</h5>
-    </div>
     <div class="card-body">
-        <sb-card>
-            <div class="card-header border2">
+        <div class="header1">
+            <form>
                 <div class="custom-control custom-switch">
                     <input (click)="ChangeStatus()" type="checkbox" class="custom-control-input" id="status" checked>
                     <label class="custom-control-label" for="status">
-                        <h6>Trạng thái xác nhận</h6>
+                        <h5><strong>Trạng thái xác nhận</strong></h5>
                     </label>
                 </div>
-            </div>
+            </form>
+
+            
+        </div>
+        <sb-card>
             <div class="card-body">
                 <div *ngIf="trangthai">
-                    <h6 class="red">Danh sách đặt sân của chủ quán đã xác nhận</h6>
+                    <h6 class="red"><strong>Danh sách đặt sân của chủ quán đã xác nhận</strong></h6>
                     <sb-card>
                         <div class="card-body">
                             <div *ngIf="checkdatsans ; then display ; else loading"></div>
@@ -65,7 +79,7 @@
                 </div>
                 
                 <div *ngIf="!trangthai">
-                    <h6 style="text-align: center; color:red">Danh sách đặt sân của quán chưa xác nhận</h6>
+                    <h6 style="text-align: center; color:red"><strong>Danh sách đặt sân của quán chưa xác nhận</strong></h6>
                     <sb-card>
                         <div class="card-body">
                             <div *ngIf="checkdatsans ; then display1 ; else loading1"></div>

@@ -1,7 +1,7 @@
 @import 'styles/variables.scss';
 
 th {
-	color: lightcyan;
+	color: white;
 	background-color:red;
   text-align: center;
 }
@@ -15,7 +15,8 @@ td{
 }
 
 .border1{
-    text-align: center;
-	color:lightcyan;
+  text-align: center;
+	color:white;
+  height: 50px;
 	background-color: forestgreen;
 }

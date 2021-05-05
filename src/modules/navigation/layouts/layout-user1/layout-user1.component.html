@@ -1,12 +1,27 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <span [ngClass]='{"sb-nav-fixed": !static}'>
     <nav class="sb-topnav navbar-light top">
         <img src="../../../../assets/img/slide/3.jpg" style="width:80px; "
             class="col-lg-3 col-form-label form-control-label">
         <strong>ĐẶT SÂN BÓNG ĐÁ</strong>
-        <button class="bt btn">
-            <img src="../../../../assets/img/avatar.jpg" (click)="thongtin()" style="width:25px; ">
+        <button class="w3-dropdown-hover w3-mobile bt btn">
+            
+            <img src="../../../../assets/img/avatar.jpg"  style="width:25px; ">
+                <div  class="w3-bar-block w3-dropdown-content absolute" *ngIf="checkuser">
+                    <div class="w3-bar-item w3-button w3-mobile">{{user.name}}</div>
+                    <div class="w3-bar-item w3-button w3-mobile">{{user.phone}}</div>
+                    <div class="w3-bar-item w3-button w3-mobile">{{user.gmail}}</div>
+                    <div class="w3-bar-item w3-button w3-mobile">{{user.address}}</div>
+                    <a href="/dashboard/editUser" class="w3-bar-item w3-button w3-mobile"><strong>Chỉnh sửa thông tin </strong></a>
+                    <a (click)="dangxuat()" class="w3-bar-item w3-button w3-mobile"><strong>Đăng xuất</strong></a>
+                </div>
         </button> 
-        <div class=" menu">
+        <div class="menu">
             <img src="../../../../assets/img/slide/2.jpg" style="width:50px; height:40px "
                 class="col-lg-3 col-form-label form-control-label">
             <button class="btn bt1" routerLink="/dashboard/home"><strong>TRANG CHỦ</strong></button>
@@ -15,6 +30,8 @@
             <img src="../../../../assets/img/slide/4.jpg" style="width:50px; height:40px"
                 class="col-lg-3 col-form-label form-control-label">
         </div>
+
+
     </nav>
 
     <div>
@@ -49,3 +66,4 @@
         <img src="../../../../assets/img/slide/4.jpg" style="width:80px; " class="col-lg-3 col-form-label form-control-label">
     </nav>
 </span> -->
+        

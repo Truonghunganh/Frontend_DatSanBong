@@ -2,7 +2,7 @@
 
 <sb-card>
     <div class="card-header border1">
-        <h6> Các quán chưa được phe duyệt của chủ quán
+        <h6><strong> Các quán chưa được phe duyệt của chủ quán</strong>
         </h6>
     </div>
     <div class="card-body">
@@ -34,15 +34,15 @@
                             <td>{{quan.vido}}</td>
                             <td>    
                                 <div *ngIf="quan.image">
-                                    <img style="width: 5opx; height: 50px;" src="{{url+'/'+quan.image}}">
+                                    <img style="width: 80px; height: 50px;" src="{{url+'/'+quan.image}}">
                                 </div>
                                 <div *ngIf="!quan.image">
                                     <img style="width: 50px; height: 50px;" class="profile_img" src="../../../assets/img/avatar.jpg">
                                 </div>
                             </td>
                             <td>
-                                <fa-icon routerLink="/dashboard/editQuanByTokenInnkeeper/{{quan.id}}" class='fas fa-trash fa-2x' [icon]='["fas","edit"]'></fa-icon>
-                                <fa-icon (click)="deleteQuan(quan)" [icon]='["fas","trash"]' class='fas fa-trash fa-2x'></fa-icon>
+                                <fa-icon routerLink="/dashboard/editQuanByTokenInnkeeper/{{quan.id}}" class='fas fas-trash fa-2x' [icon]='["fas","edit"]'></fa-icon>
+                                <fa-icon (click)="deleteQuan(quan)" [icon]='["fas","trash"]' class='fas fas-trash fa-2x'></fa-icon>
                             </td>
                         </tr>
                     </tbody>
@@ -60,3 +60,4 @@
         </ng-template>
     </div>
 </sb-card>
+<button class="btn btn-success float-right"[routerLink]="['/innkeeper/addquan']">Thêm quán</button>

@@ -36,6 +36,7 @@ export class DashboardTablesanComponent implements OnInit {
         this.idquan = Number(this.activatedRoute.snapshot.paramMap.get('idquan'));
         this.ngayvagio = new Date().toISOString().slice(0, 10);
         this.getDatSansvaSansByUserAndIdquanAndNgay(this.idquan, this.ngayvagio);
+        this.xembinhluan();
     }
     chonngay(ngay :any){
         this.ngayvagio = ngay.target.value;
@@ -224,42 +225,37 @@ export class DashboardTablesanComponent implements OnInit {
         }
 
     }
-    hienthibinhluan="Xem binh luận";
-    checkhienthibinhluan=false;
     checkcomments=false;
     comments: any;
     xembinhluan(){
-        this.checkhienthibinhluan=!this.checkhienthibinhluan;
-        if (this.checkhienthibinhluan) {
-            this.hienthibinhluan="Ẩn bình luận";
-            this.checkcomments=false;
-            this.dashboardService.getAllCommentCuaMotQuan(this.idquan).subscribe(data => {
-                console.log(data);
-                
-                if(data.status){
-                    this.comments=data.comments;
-                    for (let i = 0; i < this.comments.length; i++) {
-                        this.mangreview[i] = this.taomotmangreview(Math.round(this.comments[i].review));
-                        this.mangBL[i]=false;
-                    }
-                    console.log(this.mangreview);
+        this.checkcomments = false;
+        this.page= 1;
+        this.dashboardService.getAllCommentCuaMotQuan(this.idquan).subscribe(data => {
+            console.log(data);
 
-                    this.checkcomments=true;
-                    this.changeDetectorRef.detectChanges();
-                }else{
-                    Swal.fire({
-                        icon: 'error',
-                        title: data.message,
-                    })
+            if (data.status) {
+                this.comments = data.comments;
+                for (let i = 0; i < this.comments.length; i++) {
+                    this.mangreview[i] = this.taomotmangreview(Math.round(this.comments[i].review));
+                    this.mangBL[i] = false;
                 }
-            })           
-        }else{
-            this.hienthibinhluan = "Xem binh luận";
-
-        }
+                console.log(this.mangreview);
+                this.tongpage = this.comments.length / 10 + 1;
+                this.taoBLnew(this.page);
+                this.checkcomments = true;
+                
+                this.changeDetectorRef.detectChanges();
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: data.message,
+                })
+            }
+        })
     }
     binhluan ="";
     binhluancuaban(){
+        this.page=1;
         this.dashboardService.addComment(this.idquan, this.binhluan).subscribe(data =>{
             if (data.status) {
                 this.comments = data.comments;
@@ -268,6 +264,8 @@ export class DashboardTablesanComponent implements OnInit {
                     this.mangBL[i] = false;
                 }
                 console.log(this.mangreview);
+                this.tongpage = this.comments.length / 10 + 1;
+                this.taoBLnew(this.page);
 
                 this.checkcomments = true;
                 this.changeDetectorRef.detectChanges();
@@ -305,6 +303,9 @@ export class DashboardTablesanComponent implements OnInit {
                             timer: 1500
                         })
                         this.comments = data.comments;
+                        this.page=1;
+                        this.tongpage = this.comments.length / 10 + 1;
+                        this.taoBLnew(this.page);
                         this.checkcomments = true;
                         this.changeDetectorRef.detectChanges();
                     } else {
@@ -325,6 +326,8 @@ export class DashboardTablesanComponent implements OnInit {
         this.dashboardService.updateComment(id, binhluan).subscribe(data=>{
             if (data.status) {
                 this.comments = data.comments;
+                this.tongpage = this.comments.length / 10 + 1;
+                this.taoBLnew(this.page);
                 this.checkcomments = true;
                 this.changeDetectorRef.detectChanges();
             } else {
@@ -344,9 +347,57 @@ export class DashboardTablesanComponent implements OnInit {
 
     }
     mangBL= new Array();
+    page = 1;
+    tongpage = 0;
+    mangBLNew: any;
+    mangtrang: any;
+    taoBLnew(page: number) {
+        this.mangBLNew = [];
+        this.tongpage = this.comments.length / 10;
+        let i = (page - 1) * 10;
+        let k;
+        if (page < this.tongpage) {
+            k = 10;
+        } else {
+            k = this.comments.length % 10;
+
+        }
+        console.log(this.tongpage, i, k, page);
+
+        for (let j = 0; j < k; j++) {
+            if (j == 10) {
+                break;
+            }
+            this.mangBLNew.push(this.comments[i + j]);
+
+        }
+        this.taomangtrang(page);
+    }
+    taomangtrang(page: number) {
+        var mang: Array<boolean> = [];
+        for (let i = 0; i < this.tongpage; i++) {
+            mang.push(false);
+
+        }
+        mang[page - 1] = true;
+        this.mangtrang = mang;
+
+    }
+    Previous() {
+        if (this.page > 1) {
+            this.page--;
+            this.taoBLnew(this.page);
+        }
+    }
+    Next() {
+        if (this.page < this.tongpage) {
+            this.page++;
+            this.taoBLnew(this.page);
+        }
+    }
+    chontrang(page: number) {
+        this.page = page;
+        this.taoBLnew(this.page);
+    }
+
 }
-// Swal.fire({
-//     html: '<img *ngIf="' + this.mangreviewuser[0] + '" (click)="' + this.chonreview(1) + '" src="../../../assets/img/reviews/Star_full.svg" style="width: 3rem;height: 3rem"><img * ngIf="!' + this.mangreviewuser[0] + '" (click)="' + this.chonreview(1) + '" src = "../../../assets/img/reviews/0-star.svg" style="width: 3rem;height: 3rem" ><img * ngIf="' + this.mangreviewuser[1] + '" (click)="' + this.chonreview(2) + '" src = "../../../assets/img/reviews/Star_full.svg" style="width: 3rem;height: 3rem" ><img * ngIf="!' + this.mangreviewuser[1] + '" (click)="' + this.chonreview(2) + '" src = "../../../assets/img/reviews/0-star.svg" style="width: 3rem;height: 3rem" ><img * ngIf="' + this.mangreviewuser[2] + '" (click)="' + this.chonreview(3) + '" src = "../../../assets/img/reviews/Star_full.svg" style="width: 3rem;height: 3rem"><img * ngIf="!' + this.mangreviewuser[2] + '" (click)="' + this.chonreview(3) + '" src = "../../../assets/img/reviews/0-star.svg" style="width: 3rem;height: 3rem" ><img * ngIf="' + this.mangreviewuser[3] + '" (click)="' + this.chonreview(4) + '" src = "../../../assets/img/reviews/Star_full.svg" style="width: 3rem;height: 3rem"><img * ngIf="!' + this.mangreviewuser[3] + '" (click)="' + this.chonreview(4) + '" src = "../../../assets/img/reviews/0-star.svg" style="width: 3rem;height: 3rem"><img * ngIf="' + this.mangreviewuser[4] + '" (click)="' + this.chonreview(5) + '" src = "../../../assets/img/reviews/Star_full.svg" style="width: 3rem;height: 3rem"><img * ngIf="!' + this.mangreviewuser[4] + '" (click)="' + this.chonreview(5) + '" src = "../../../assets/img/reviews/0-star.svg" style="width: 3rem;height: 3rem">',
-//     showCancelButton: true,
-//     confirmButtonText: `thanh toán`,
-// });

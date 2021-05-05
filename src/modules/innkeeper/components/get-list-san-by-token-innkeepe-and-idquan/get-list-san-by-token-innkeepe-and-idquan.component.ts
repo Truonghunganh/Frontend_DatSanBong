@@ -52,6 +52,7 @@ export class GetListSanByTokenInnkeepeAndIdquanComponent implements OnInit {
                 this.checkquan=true;
                 this.ngayvagio = new Date().toISOString().slice(0, 10);
                 this.getDatSansvaSansByInnkeeperAndIdquanAndNgay(this.idquan, this.ngayvagio);
+                this.xembinhluan();
             }
         })
     }
@@ -151,28 +152,25 @@ export class GetListSanByTokenInnkeepeAndIdquanComponent implements OnInit {
     checkcomments = false;
     comments: any;
     xembinhluan() {
-        this.checkhienthibinhluan = !this.checkhienthibinhluan;
-        if (this.checkhienthibinhluan) {
-            this.hienthibinhluan = "Ẩn bình luận";
-            this.checkcomments = false;
-            this.dashboardService.getAllCommentCuaMotQuanByInnkeeper(this.idquan).subscribe(data => {
-                console.log(data);
+        this.checkcomments = false;
+        this.dashboardService.getAllCommentCuaMotQuanByInnkeeper(this.idquan).subscribe(data => {
+            console.log(data);
 
-                if (data.status) {
-                    this.comments = data.comments;
-                    this.checkcomments = true;
-                    this.changeDetectorRef.detectChanges();
-                } else {
-                    Swal.fire({
-                        icon: 'error',
-                        title: data.message,
-                    })
-                }
-            })
-        } else {
-            this.hienthibinhluan = "Xem binh luận";
+            if (data.status) {
+                this.comments = data.comments;
+                this.tongpage = this.comments.length / 10 + 1;
+                this.taoBLnew(this.page);
+                this.checkcomments = true;
 
-        }
+                this.changeDetectorRef.detectChanges();
+
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: data.message,
+                })
+            }
+        })
     }
     editquan(){
         this.router.navigate(['/innkeeper/editQuanByTokenInnkeeper/'+ this.idquan])
@@ -187,6 +185,59 @@ export class GetListSanByTokenInnkeepeAndIdquanComponent implements OnInit {
         this.router.navigate(['/innkeeper/thongtindatsan/' + this.idquan]);
     }   
 
+    mangBL = new Array();
+    page = 1;
+    tongpage = 0;
+    mangBLNew: any;
+    mangtrang: any;
+    taoBLnew(page: number) {
+        this.mangBLNew = [];
+        this.tongpage = this.comments.length / 10;
+        let i = (page - 1) * 10;
+        let k;
+        if (page < this.tongpage) {
+            k = 10;
+        } else {
+            k = this.comments.length % 10;
+
+        }
+        console.log(this.tongpage, i, k, page);
+
+        for (let j = 0; j < k; j++) {
+            if (j == 10) {
+                break;
+            }
+            this.mangBLNew.push(this.comments[i + j]);
+
+        }
+        this.taomangtrang(page);
+    }
+    taomangtrang(page: number) {
+        var mang: Array<boolean> = [];
+        for (let i = 0; i < this.tongpage; i++) {
+            mang.push(false);
+
+        }
+        mang[page - 1] = true;
+        this.mangtrang = mang;
+
+    }
+    Previous() {
+        if (this.page > 1) {
+            this.page--;
+            this.taoBLnew(this.page);
+        }
+    }
+    Next() {
+        if (this.page < this.tongpage) {
+            this.page++;
+            this.taoBLnew(this.page);
+        }
+    }
+    chontrang(page: number) {
+        this.page = page;
+        this.taoBLnew(this.page);
+    }
 
     
 }

@@ -1,24 +1,10 @@
  @import 'styles/variables.scss';
-.center {
-  margin-left: auto;
-  margin-right: auto;
- 
-}
 td{
   text-align: center;
 }
 .star{
   width: 2rem;
   height: 2rem
-}
-img{
-  // display: block;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 2px;
-  margin-right: 2px;
-  // width: 80%;
-   height: 14rem;
 }
 body{
 	margin:0;
@@ -81,8 +67,11 @@ body{
 .banner .info a:hover{
 	background: #e91e63;
 }
+tr{
+  text-align: center;
+}
 .border1{
-	color:lightcyan;
+  color:white;
 	background-color: forestgreen;
 }
 .mauvachu{
@@ -96,11 +85,57 @@ body{
   color: orange;
 }
 .nochecked{
-  color:white;
+  color:black;
 }
 .mauchu{
-  color:lightcyan;
+  color:black;
+}
+.a{
+  background-color: forestgreen;
+  font-size: 25px;
+}
+.b{
+  color:white;
+  background-color:red;
+  text-align: center;
+  font-size: 20px;
+}
+.container1 { 
+  height: 40px;
+  margin: 0;
+  top: 60%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.center1 {
+  margin: 0;
+  position: absolute;
+  top: 60%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+img{
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+  // width: 80%;
+   height: 14rem;
 }
 tr{
+  text-align: center;
+}
+td{
   text-align: center;
 }

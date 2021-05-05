@@ -1,57 +1,56 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
+<br>
+<br>
+<div class=" header">
+    <h3><strong> DOANH THU CỦA QUÁN</strong></h3>
+</div>
 <sb-card>
-    <div class="card-header border1">
-        <h5> DOANH THU CỦA QUÁN</h5>
-    </div>
     <div class="card-body">
+        <div class="header1">
+            <h5><strong>Thông tin của Quán</strong></h5>
+        </div>
+
         <sb-card>
-            <div class="card-header border1">
-                <h6>Thông tin của Quán
-                </h6>
-            </div>
-            <div class="card-body" style="background-color:#41c04d;color:lightcyan;">
+            <div class="card-body" style="background-color:white;color:black">
                 <div *ngIf="checkquan; then display2; else loading2"></div>
                 <ng-template #display2>
-                    <div class="text-center">
-                        <table style="width: 100%;">
-                            <tr>
-                                <td style="text-align: center;" rowspan="4">
-                                    <div *ngIf="quan.image">
-                                        <img style="width: 150px; " src="{{url+'/'+quan.image}}">
-                                    </div>
-                                    <div *ngIf="!quan.image">
-                                        <img class="profile_img" src="../../../assets/img/avatar.jpg">
-                                    </div>
-                                </td>
-                                <td style="color:lightcyan"> <strong>{{ quan.name }}</strong></td>
-                            </tr>
-                            <tr>
-                                <td style="color:lightcyan"><strong>{{ quan.phone}}</strong></td>
-                            </tr>
-                            <tr>
-                                <td style="color:lightcyan">
-                                    <strong>{{ quan.address}}</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="text-align: center;">
-                                    <span *ngIf="mangreviewquan[0]" class="fa fa-star checked"></span>
-                                    <span *ngIf="!mangreviewquan[0]" class="fa fa-star nochecked"></span>
-                                    <span *ngIf="mangreviewquan[1]" class="fa fa-star checked"></span>
-                                    <span *ngIf="!mangreviewquan[1]" class="fa fa-star nochecked"></span>
-                                    <span *ngIf="mangreviewquan[2]" class="fa fa-star checked"></span>
-                                    <span *ngIf="!mangreviewquan[2]" class="fa fa-star nochecked"></span>
-                                    <span *ngIf="mangreviewquan[3]" class="fa fa-star checked"></span>
-                                    <span *ngIf="!mangreviewquan[3]" class="fa fa-star nochecked"></span>
-                                    <span *ngIf="mangreviewquan[4]" class="fa fa-star checked"></span>
-                                    <span *ngIf="!mangreviewquan[4]" class="fa fa-star nochecked"></span>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="text-align: center; width: 50%" rowspan="4">
+                                <div *ngIf="quan.image" >
+                                    <img style="height:150px;width:70%" src="{{url+'/'+quan.image}}">
+                                </div>
+                                <div *ngIf="!quan.image">
+                                    <img class="profile_img" src="../../../assets/img/avatar.jpg">
+                                </div>
+                            </td>
+                            <td style="text-align: center;"> <strong>{{ quan.name }}</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;"><strong>{{ quan.phone}}</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">
+                                <strong>{{ quan.address}}</strong>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">
+                                <span *ngIf="mangreviewquan[0]" class="fa fa-star checked"></span>
+                                <span *ngIf="!mangreviewquan[0]" class="fa fa-star nochecked"></span>
+                                <span *ngIf="mangreviewquan[1]" class="fa fa-star checked"></span>
+                                <span *ngIf="!mangreviewquan[1]" class="fa fa-star nochecked"></span>
+                                <span *ngIf="mangreviewquan[2]" class="fa fa-star checked"></span>
+                                <span *ngIf="!mangreviewquan[2]" class="fa fa-star nochecked"></span>
+                                <span *ngIf="mangreviewquan[3]" class="fa fa-star checked"></span>
+                                <span *ngIf="!mangreviewquan[3]" class="fa fa-star nochecked"></span>
+                                <span *ngIf="mangreviewquan[4]" class="fa fa-star checked"></span>
+                                <span *ngIf="!mangreviewquan[4]" class="fa fa-star nochecked"></span>
+                            </td>
+                        </tr>
+                    </table>
                 </ng-template>
                 <ng-template #loading2>
                     <div class="text-center">
@@ -66,9 +65,10 @@
         <div *ngIf="checkchitiet">
             <sb-card>
                 <div class="card-header border1">
-                    <h6 > Chọn tháng doanh thu :
+                    <h3 ><strong> Chọn tháng doanh thu :
                         <input type="month" [(ngModel)]="thang" (change)="chonthang($event);">
-                    </h6>
+                        </strong>
+                    </h3>
                 </div>
                 <div class="card-body" style="color:red">
                     <div *ngIf="checkdoanhthus then display; else loading"></div>
@@ -110,14 +110,14 @@
             </sb-card>
             <sb-card>
                 <div class="card-header border2">
-                    <h6 style="text-align: center;"> Doanh thu của năm : <input type='number' min="2020" [(ngModel)]="year" name="year" max="2100"
-                            (change)="chonNam();">
-                    </h6>
-                    <h6>Dạng biểu đồ :{{dangBD}}
+                    <h3 style="text-align: center;"><strong> Doanh thu của năm : <input type='number' min="2020" [(ngModel)]="year" name="year" max="2100"
+                            (change)="chonNam();"></strong>
+                    </h3>
+                    <h5>Dạng biểu đồ : <strong>{{dangBD}}</strong>
                         <input type="button" class="btn btn-info float-right" (click)="cot()" value="Biểu đồ Cột" />
                         <input type="button" class="btn btn-success float-right" (click)="tron()" value="Biểu đồ tròn" />
                         <input type="button" class="btn btn-primary float-right" (click)="duong()" value="Biểu đồ đường" />
-                    </h6>
+                    </h5>
                 </div>
                 <div class="card-body " style="color:red">
                     <div *ngIf="checkdoanhthustheonam then display1; else loading1"></div>
@@ -191,21 +191,28 @@
                         </div>
                     </ng-template>
                     <nav aria-label="...">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" (click)="Previous()">Previous</a>
-                            </li>
-                            <div *ngFor="let vitri of mangtrang; index as i">
-                                <li *ngIf="vitri" class="page-item active">
-                                    <a class="page-link" (click)="chontrang(i+1)">{{i+1}} </a>
-                                </li>
-                                <li *ngIf="!vitri" class="page-item">
-                                    <a class="page-link" (click)="chontrang(i+1)">{{i+1}} </a>
-                                </li>
+                        <ul class="pagination justify-content-center">
+                            <div class="row" style="color:forestgreen">
+                                <input type="button" class="btn btn-success" (click)="Previous()" value="Previous">
+                    
+                                <div *ngFor="let vitri of mangtrang; index as i">
+                                    <div *ngIf="page==i-2">
+                                        <a class="page-link">... </a>
+                                    </div>
+                                    <div *ngIf="page>i-2 && page<i+4">
+                                        <li *ngIf="vitri" class="page-item active">
+                                            <a class="page-link" (click)="chontrang(i+1)">{{i+1}} </a>
+                                        </li>
+                                        <li *ngIf="!vitri" class="page-item">
+                                            <a class="page-link" (click)="chontrang(i+1)">{{i+1}} </a>
+                                        </li>
+                                    </div>
+                                    <div *ngIf="page==i+4">
+                                        <a class="page-link">... </a>
+                                    </div>
+                                </div>
+                                <input type="button" class="btn border1" (click)="Next()" value="Next">
                             </div>
-                            <li class="page-item">
-                                <a class="page-link" (click)="Next()">Next</a>
-                            </li>
                         </ul>
                     </nav>
                     <input type="button" class="form-control btn btn-primary" style="text-align: center;" (click)="OK()" value="OK" />

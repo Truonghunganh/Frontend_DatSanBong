@@ -1,6 +1,6 @@
 <sb-card>
     <div class="card-header border1">
-        <h6>Chỉnh sữa thông tin cá nhân</h6>
+        <h3><strong>Chỉnh sữa thông tin cá nhân</strong></h3>
     </div>
     <div class="card-body">
         <div *ngIf="checkInnkeeper; then display ; else loading"></div>
@@ -44,8 +44,8 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-9 ml-auto text-right">
-                            <input type="reset" class="btn btn-outline-secondary" (click)="Cancel()" value="Hủy" />
-                            <input type="button" class="btn btn-primary"
+                            <input type="reset" class="btn btn-danger" [routerLink]="['/innkeeper/quans']"  value="Hủy" />
+                            <input type="button" class="btn btn-success"
                                 (click)="Edit(name.value,gmail.value,address.value,password.value)" value="Lưu thông tin" />
                         </div>
                     </div>
