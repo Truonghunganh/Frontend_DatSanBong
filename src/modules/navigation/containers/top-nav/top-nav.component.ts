@@ -24,12 +24,15 @@ export class TopNavComponent implements OnInit {
     }
 
     user: any;
+    checkuser=false;
     ngOnInit() {
+        this.checkuser=false;
         this.authService.checkTokenAdmin().subscribe(data => {
             console.log(data);
             
             if (data.status) {
                 this.user = data.admin;
+                this.checkuser=true;
                 this.changeDetectorRef.detectChanges();
                 console.log(this.user);
             } else {
@@ -41,21 +44,8 @@ export class TopNavComponent implements OnInit {
             }
         })
     }
-    thongtin() {
-        Swal.fire({
-            html: '<div><strong>' + this.user.name + '</strong></div>' +
-                '<div><strong>' + this.user.phone + '</strong></div>' +
-                '<div><strong>' + this.user.address + '</strong></div>' +
-                '<div><strong>' + this.user.gmail + '</strong></div>' +
-                '<div><a href="/admin/editadmin">chỉnh sữa thông tin</a></div>',
-            showCancelButton: true,
-            confirmButtonText: "đăng xuất",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                this.authService.logout();
-            }
-        });
-
+    dangxuat() {
+        this.authService.logout();
     }
 
 }

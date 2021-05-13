@@ -7,6 +7,7 @@ import {
     OnDestroy,
     OnInit,
 } from '@angular/core';
+import { AuthService } from '@modules/auth/services';
 import { sideNavItemsA, sideNavSectionsA } from '@modules/navigation/data';
 import { NavigationService } from '@modules/navigation/services';
 import { Subscription } from 'rxjs';
@@ -28,7 +29,8 @@ export class LayoutAdminComponent implements OnInit, OnDestroy{
 
     constructor(
         public navigationService: NavigationService,
-        private changeDetectorRef: ChangeDetectorRef
+        private changeDetectorRef: ChangeDetectorRef,
+        private authService: AuthService,
     ) { }
     ngOnInit() {
         if (this.light) {
@@ -44,4 +46,8 @@ export class LayoutAdminComponent implements OnInit, OnDestroy{
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }
+    dangxuat() {
+        this.authService.logout();
+    }
+
 }

@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AdminService } from "../../services/admin.service";
 import { environment } from './../../../../environments/environment';
-import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service'
 import Swal from 'sweetalert2';
@@ -29,42 +28,66 @@ export class ListQuansByAdminComponent implements OnInit {
 
     quans:any;
     checkquans=false;
-    page=1;
-    tongpage=0;
+    page = 1;
+    tongpage = 0;
     mangtrang: any;
-    taomangtrang(page:number){
-        var mang:Array<boolean>= [];
+    quansnew: any;
+    soluongtrentrang = 5;
+    taoquansnew(page: number) {
+        this.quansnew = [];
+        this.tongpage = this.quans.length / this.soluongtrentrang;
+        let i = (page - 1) * this.soluongtrentrang;
+        let k;
+        if (page < this.tongpage) {
+            k = this.soluongtrentrang;
+        } else {
+            k = this.quans.length % this.soluongtrentrang;
+        }
+        console.log(i,k,this.tongpage);
+        
+        for (let j = 0; j < k; j++) {
+            if (j == this.soluongtrentrang) {
+                break;
+            }
+            this.quansnew.push(this.quans[i + j]);
+
+        }
+        this.taomangtrang(page);
+    }
+    taomangtrang(page: number) {
+        var mang: Array<boolean> = [];
         for (let i = 0; i < this.tongpage; i++) {
             mang.push(false);
-            
+
         }
-        mang[page-1] = true;
-        this.mangtrang= mang;
-        
+        mang[page - 1] = true;
+        this.mangtrang = mang;
+
     }
-    Previous(){
-        if(this.page>1){
+    Previous() {
+        if (this.page > 1) {
             this.page--;
-            this.getListquans(this.page);
+            this.taoquansnew(this.page);
         }
     }
-    Next(){
-        if (this.page<this.tongpage) {
+    Next() {
+        if (this.page < this.tongpage) {
             this.page++;
-            this.getListquans(this.page);
+            this.taoquansnew(this.page);
         }
     }
-    chontrang(page:number){
-        this.page= page;
-        this.getListquans(this.page);
+    chontrang(page: number) {
+        console.log(page);
+
+        this.page = page;
+        this.taoquansnew(this.page);
     }
     getListquans(page:number) {
         this.checkquans = false;
         this.dashboardService.getListQuansDaPheDuyetByTokenAdmin(page).subscribe(data => {
             if (data.status) {
                 this.quans = data.quans;
-                this.tongpage=data.tongpage;
-                this.taomangtrang(this.page);
+                this.taoquansnew(page);
                 this.checkquans = true;
                 this.changeDetectorRef.detectChanges();
             }
@@ -86,6 +109,7 @@ export class ListQuansByAdminComponent implements OnInit {
             if (result.value) {
                 this.dashboardService.UpdateTrangThaiQuanTokenAdmin(quan.id,false).subscribe(data=>{
                     if(data.status){
+                        this.page=1;
                         this.getListquans(this.page);
                     }else{
                         Swal.fire({

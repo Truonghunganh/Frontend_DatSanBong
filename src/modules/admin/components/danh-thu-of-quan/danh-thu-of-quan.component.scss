@@ -1,12 +1,35 @@
 @import 'styles/variables.scss';
-.center {
-  margin-left: auto;
-  margin-right: auto;
- 
+.btdt{
+    text-align: center;
 }
-.star{
-  width: 3rem;
-  height: 3rem
+.header{
+  background-color:green;
+  color: white;
+  height: 35px;
+	text-align: center;
+   
+}
+.header1{
+  background-color:green;
+  color: white;
+  height: 25px;
+	text-align: center;
+   
+}
+.border1{
+  text-align: center;
+	color:white;
+	background-color: forestgreen;
+}
+.border2{
+ 	background-color:green;
+  color:White;
+}
+.checked {
+  color: orange;
+}
+.nochecked{
+  color:black;
 }
 th {
 	color: lightcyan;
@@ -22,19 +45,3 @@ td{
   font-size:14px;
 }
 
-.border1{
-	text-align: center;
-    color:lightcyan;
-	background-color: forestgreen;
-}
-.border2{
-	text-align: center;
-    color:lightcyan;
-	background-color: darkgreen;
-}
-.checked {
-  color: orange;
-}
-.nochecked{
-  color:white;
-}

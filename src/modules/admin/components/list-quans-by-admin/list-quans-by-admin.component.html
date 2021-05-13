@@ -1,40 +1,37 @@
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<sb-card>
-    <div class="card-header" style="background-color: forestgreen;">
-        <h5 class="card-title" style="color:lightcyan">Danh sách các quán bóng đá
-            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 float-right"
-                (ngSubmit)="search()">
-                <div class="input-group ">
-                    <input class="form-control" style="color:lightcyan" name="timkiem" [(ngModel)]="timkiem" type="text"
-                        placeholder="Tìm kiếm....." aria-label="Search" aria-describedby="basic-addon2" />
-                    <div class="input-group-append">
-                        <button class="btn btn-success" type="submit">
-                            <fa-icon [icon]='["fas", "search"]'></fa-icon>
-                        </button>
-                    </div>
+<div class="header1">
+    <h3>
+        <strong>Danh sách các quán bóng đá</strong>
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 float-right"
+            (ngSubmit)="search()">
+            <div class="input-group ">
+                <input class="form-control" style="color:lightcyan" name="timkiem" [(ngModel)]="timkiem" type="text"
+                    placeholder="Tìm kiếm....." aria-label="Search" aria-describedby="basic-addon2" />
+                <div class="input-group-append">
+                    <button class="btn btn-success" type="submit">
+                        <fa-icon [icon]='["fas", "search"]'></fa-icon>
+                    </button>
                 </div>
-            </form>
-        </h5>
-    </div>
+            </div>
+        </form>
+    </h3>
+</div>
+<sb-card>
     <div class="card-body">
         <div *ngIf="checkquans; then display; else loading"></div>
         <ng-template #display>
+            <div class="header2">
+                <h5><strong>Google Maps</strong></h5>
+            </div>
             <div class="card">
-                <div class="card-header" style="background-color:green;text-align: center;">
-                    <h6 class="card-title" style="color:lightcyan">Google Maps</h6>
-                </div>
                 <div class="card-body">
                     <sb-google-maps-search-quan [user]="user" [listquans]="quans" [hienthivitricuaminh]="hienthivitricuaminh">
                     </sb-google-maps-search-quan>
                 </div>
             </div>
+            <div class="header2">
+                <h5><strong>Danh sách sân bóng</strong></h5>
+            </div>
             <div class="card">
-                <div class="card-header border1" >
-                    <h6 class="card-title" >Danh sách sân bóng</h6>
-                </div>
                 <div class="card-body">
                     <table class="table table-striped " style="width:100%">
                         <thead>
@@ -50,7 +47,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let quan of quans ;index as i" routerLink="/admin/quans/{{quan.id}}">
+                            <tr *ngFor="let quan of quansnew ;index as i" routerLink="/admin/quans/{{quan.id}}">
                                 <td>{{(page-1)*5+i+1}}</td>
                                 <td>{{quan.name}}</td>
                                 <td><a href="{{quan.linkaddress}}">{{quan.address}}</a></td>

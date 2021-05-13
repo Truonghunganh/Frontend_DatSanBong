@@ -1,22 +1,23 @@
 <div *ngIf="chinhsua">
-    <sb-card>
-        <div class="card-header" style="background-color: forestgreen;">
-            <h5 class="card-title" style="color:lightcyan">Danh sách các chủ quán
-                <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 float-right"
+    <div class="header1">
+        <h3>
+            <strong>Danh sách các chủ quán</strong>
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0 float-right"
                     (ngSubmit)="search()">
-                    <div class="input-group ">
-                        <input class="form-control" style="color:black" name="timkiem" [(ngModel)]="timkiem"
-                            type="text" placeholder="Tìm kiếm....." aria-label="Search"
-                            aria-describedby="basic-addon2" />
-                        <div class="input-group-append">
-                            <button class="btn btn-success" type="submit">
-                                <fa-icon [icon]='["fas", "search"]'></fa-icon>
-                            </button>
-                        </div>
+                <div class="input-group ">
+                    <input class="form-control" style="color:black" name="timkiem" [(ngModel)]="timkiem" type="text"
+                        placeholder="Tìm kiếm....." aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="submit">
+                            <fa-icon [icon]='["fas", "search"]'></fa-icon>
+                        </button>
                     </div>
-                </form>
-            </h5>
-        </div>
+                </div>
+            </form>
+        </h3>
+    </div>
+
+    <sb-card>
         <div class="card-body">
             <div *ngIf="checkusers; then display; else loading"></div>
             <ng-template #display>

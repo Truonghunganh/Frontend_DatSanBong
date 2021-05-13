@@ -85,21 +85,19 @@ export class DashboardListquansComponent implements OnInit {
     tongpage = 0;
     mangtrang: any;
     quansnew: any;
+    soluongtrentrang=3;
     taoquansnew(page: number) {
         this.quansnew = [];
-        this.tongpage = this.quans.length / 3;
-        let i = (page - 1) * 3;
+        this.tongpage = this.quans.length / this.soluongtrentrang;
+        let i = (page - 1) * this.soluongtrentrang;
         let k;
         if (page < this.tongpage) {
-            k = 3;
+            k = this.soluongtrentrang;
         } else {
-            k = this.quans.length % 3;
-    
+            k = this.quans.length % this.soluongtrentrang;
         }
-        console.log(this.tongpage, i, k, page);
-
         for (let j = 0; j < k; j++) {
-            if (j == 3) {
+            if (j == this.soluongtrentrang) {
                 break;
             }
             this.quansnew.push(this.quans[i + j]);

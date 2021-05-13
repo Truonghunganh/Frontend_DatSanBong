@@ -1,18 +1,18 @@
+<div class="header1">
+    <h3>
+        <strong>Doanh thu của Admin theo năm</strong>
+    </h3>
+</div>
 <sb-card>
-    <div class="card-header border2">
-        <h5>
-            Doanh thu theo năm
-        </h5>
-    </div>
     <div class="card-body">
+        <div class="header2">
+            <h5>
+                <strong>Doanh thu của năm :</strong>
+                <input type='number' min="2020" [(ngModel)]="nam" name="nam" max="2100">
+                <input type="button" (click)="chonNam();" class="btn-success" value="Dữ liệu">
+            </h5>
+        </div>
         <sb-card>
-            <div class="card-header border1">
-                <h6>
-                    Doanh thu của năm :
-                    <input type='number' min="2020" [(ngModel)]="nam" name="nam" max="2100">
-                    <input type="button" (click)="chonNam();" class="btn-success" value="Dữ liệu">
-                </h6>
-            </div>
             <div class="card-body">
                 <sb-card>
                     <div class="card-header">
@@ -41,10 +41,12 @@
                 
                     </div>
                 </sb-card>
+                <div class="header2">
+                    <h5>
+                        <strong>Doanh thu các quán</strong>
+                    </h5>
+                </div>
                 <sb-card>
-                    <div class="card-header border1">
-                        <h6> Doanh thu của các quán </h6>
-                    </div>
                     <div class="card-body">
                         <div *ngIf="checkdoanhthusListQuanCuaMotNam then display; else loading"></div>
                         <ng-template #display>

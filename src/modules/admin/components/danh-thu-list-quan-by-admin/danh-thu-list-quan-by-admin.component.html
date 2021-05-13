@@ -1,17 +1,15 @@
+
+<div class="header1">
+    <h3>
+        <strong>Doanh thu của các quán theo tháng</strong>
+    </h3>
+</div>
 <sb-card>
-    <div class="card-header border1">
-        <h5>
-            Doanh thu của các quán theo tháng
-        </h5>
-    </div>
     <div class="card-body">
+        <div class="header2">
+            <h5><strong>Chọn tháng doanh thu :</strong><input type="month" [(ngModel)]="month" name="month" (change)="chonthang($event);"></h5>
+        </div>
         <sb-card>
-            <div class="card-header border1">
-                <h6>Chọn tháng doanh thu :
-                    <input type="month" [(ngModel)]="month" name="month" (change)="chonthang($event);">
-                </h6>
-        
-            </div>
             <div class="card-body">
                 <div *ngIf="checkdoanhthu then display; else loading"></div>
                 <ng-template #display>
