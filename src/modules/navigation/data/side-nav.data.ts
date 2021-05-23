@@ -84,11 +84,11 @@ export const sideNavItemsA: SideNavItems = {
         link: '/admin/admin',
     },
     DoanhThuListQuan: {
-        text: 'Doanh Thu các quán',
+        text: 'Doanh Thu của các quán và amin theo tháng',
         link: '/admin/doanhthulistquan',
     },
     DoanhThuCuaAdminTheoNam: {
-        text: 'Doanh Thu Cua Admin Theo Nam',
+        text: 'Doanh thu của các quán và Admin Theo Nam',
         link: '/admin/doanhthucuaadmintheonam'
     },
     User: {

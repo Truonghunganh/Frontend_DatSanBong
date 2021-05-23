@@ -20,7 +20,6 @@ export class DanhThuOfQuanComponent implements OnInit {
     url = environment.url;
     checkdoanhthus = false;
     doanhthus: any;
-    tongDanhthu = "";
     lineChartOptionsBD = {
         responsive: true,
     };
@@ -220,6 +219,8 @@ export class DanhThuOfQuanComponent implements OnInit {
                     tong+=this.datsans[i].price;
                     this.datsans[i].price = this.datsans[i].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
+                console.log(tong);
+                
                 this.tongdoanhthuchitiet = tong.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 this.checkdatsans = true;
                 this.changeDetectorRef.detectChanges();
