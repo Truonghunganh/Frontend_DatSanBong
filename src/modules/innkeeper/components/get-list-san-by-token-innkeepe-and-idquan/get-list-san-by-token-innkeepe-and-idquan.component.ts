@@ -173,7 +173,7 @@ export class GetListSanByTokenInnkeepeAndIdquanComponent implements OnInit {
         })
     }
     editquan(){
-        this.router.navigate(['/innkeeper/editQuanByTokenInnkeeper/'+ this.idquan])
+        this.router.navigate(['/innkeeper/editQuan/'+ this.idquan])
     }
     addSan(){
         this.router.navigate(['/innkeeper/addSan/'+ this.idquan]);

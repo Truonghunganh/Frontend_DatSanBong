@@ -38,7 +38,7 @@ export const ROUTES: Routes = [
     {
         path: 'editQuan/:idquan',
         canActivate: [],
-        component: innkeeperContainers.DashboardComponent,
+        component: innkeeperContainers.DashboardEditQuanByTokenInnkeeperComponent,
     },
 
 
@@ -51,11 +51,6 @@ export const ROUTES: Routes = [
         path: 'editinnkeeper',
         canActivate: [],
         component: innkeeperContainers.DashboardInnkeeperEditComponent,
-    },
-    {
-        path: 'editQuanByTokenInnkeeper/:idquan',
-        canActivate: [],
-        component: innkeeperContainers.DashboardEditQuanByTokenInnkeeperComponent,
     },
     {
         path: 'quans/:idquan',
