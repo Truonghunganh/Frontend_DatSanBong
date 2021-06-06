@@ -19,7 +19,8 @@
         "ng": "cross-env NODE_OPTIONS=--max_old_space_size=2048 ./node_modules/.bin/ng",
         "serve": "./node_modules/.bin/static-server dist/sb-admin-angular",
         "start": "node scripts/start.js",
-        "test": "npm run ng -- test"
+        "test": "npm run ng -- test",
+        "heroku-postbuild": "ng build --prod"
     },
     "private": true,
     "dependencies": {
@@ -51,6 +52,7 @@
         "chart.js": "^2.9.3",
         "date-fns": "^2.16.1",
         "event-filter": "^1.2.0",
+        "express": "^4.17.1",
         "filepond": "^4.18.0",
         "filepond-plugin-file-validate-type": "^1.2.5",
         "filepond-plugin-image-exif-orientation": "^1.0.9",

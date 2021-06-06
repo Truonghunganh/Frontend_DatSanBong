@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 export const environment = {
     production: false,
-    url: 'http://127.0.0.1:8000',
+    url:'https://dashboard.heroku.com/apps/backenddatsanbong',
     urlCLU: 'http://localhost:4200',
     apiKey: '7767d3e09e826fad677592e5f078f09c',
     iduser:1,

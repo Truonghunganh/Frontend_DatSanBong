@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AppCommonService } from '@common/services';
 import { catchError, map, tap } from 'rxjs/operators';
-import { environment } from "../../../environments/environment";
+import { environment } from "../../../environments/environment.prod";
 import { Innkeeper, Quan, Thaydoidatsan, San, San1} from '../models/innkeeper.model';
 import { AuthService } from '../../auth/services/auth.service'
 
