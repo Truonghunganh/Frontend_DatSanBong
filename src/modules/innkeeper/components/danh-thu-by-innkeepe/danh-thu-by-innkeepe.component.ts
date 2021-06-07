@@ -94,6 +94,7 @@ export class DanhThuByInnkeepeComponent implements OnInit {
         
         this.checkTokenInnkeeperAndIdquan(this.idquan);
     }
+    
     checkTokenInnkeeperAndIdquan(idquan: number) {
         this.checkquan= false;
         this.authService.checkTokenInnkeeperAndIdquan(idquan).subscribe(data => {

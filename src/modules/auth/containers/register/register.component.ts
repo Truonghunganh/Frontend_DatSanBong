@@ -33,6 +33,10 @@ export class RegisterComponent implements OnInit {
         )
 
     }
+    Cancel(){
+        this.router.navigate(['/dashboard/home'])
+
+    }
     RegisterUser(role:string,name: string,phone: string,gmail: string,address: string,password: string){
         const user = new User1(role,name,phone,gmail,address,password);
         console.log(user);

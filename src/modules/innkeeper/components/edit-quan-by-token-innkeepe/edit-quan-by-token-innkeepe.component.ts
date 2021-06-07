@@ -48,7 +48,11 @@ export class EditQuanByTokenInnkeepeComponent implements OnInit {
         
         this.getQuanByIdAndTokenInnkeeper(this.idquan);
     }
+    Cancel(){
+        this.router.navigate(['/innkeeper/quans']);
 
+
+    }
     getQuanByIdAndTokenInnkeeper(id: number){
         this.checkquan=false;
         this.dashboardService.getQuanByIdAndTokenInnkeeper(id).subscribe(data=>{
