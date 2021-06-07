@@ -29,7 +29,7 @@ export class AddSanByInnkeeperComponent implements OnInit {
     }
     checkquan=false;
     quan:any;
-    url = environment.url;
+    url: any= "https://backenddatsanbong.herokuapp.com";
     idquan=0;
     checkTokenInnkeeperAndIdquan(idquan: number) {
         this.checkquan = false;
