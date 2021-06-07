@@ -20,9 +20,6 @@ export class GoogleMapsSearchQuanComponent implements OnInit , OnDestroy{
     }
 
     ngOnInit() {
-        console.log(this.user);
-        
-        console.log(this.listquans);
         this.hienVitricacquan(this.listquans);
         
        // this.getListquans();
@@ -38,8 +35,6 @@ export class GoogleMapsSearchQuanComponent implements OnInit , OnDestroy{
         if (!navigator.geolocation) {
             console.log('location is not supported');
         }
-        console.log(quans);
-        
         navigator.geolocation.getCurrentPosition((position) => {
             const  coords = position.coords;
             let latLong = [coords.latitude, coords.longitude];

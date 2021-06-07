@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef, ViewChil
 import Swal from 'sweetalert2';
 import { InnkeeperService } from "../../services/innkeeper.service";
 import { Router, ActivatedRoute } from '@angular/router';
-import { environment } from './../../../../environments/environment';
+import { environment } from '../../../../environments/environment.prod';
 import { Innkeeper, San } from '../../models/innkeeper.model';
 
 import { AuthService } from '../../../auth/services/auth.service'
@@ -29,7 +29,8 @@ export class AddSanByInnkeeperComponent implements OnInit {
     }
     checkquan=false;
     quan:any;
-    url = environment.url;
+    
+    url: any= "https://backenddatsanbong.herokuapp.com";
     idquan=0;
     checkTokenInnkeeperAndIdquan(idquan: number) {
         this.checkquan = false;

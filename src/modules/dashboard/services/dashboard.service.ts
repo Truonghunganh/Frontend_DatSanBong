@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AppCommonService } from '@common/services';
 import { catchError, map, tap } from 'rxjs/operators';
-import { environment } from "../../../environments/environment";
+import { environment } from "../../../environments/environment.prod";
 import { Datsan,User } from '../models/dashboard.model'; 
 import { AuthService  } from '../../auth/services/auth.service'
 

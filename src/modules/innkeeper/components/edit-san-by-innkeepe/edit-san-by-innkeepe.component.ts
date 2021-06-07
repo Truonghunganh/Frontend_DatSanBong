@@ -79,9 +79,10 @@ export class EditSanByInnkeepeComponent implements OnInit {
     }
 
 
-
+    Cancel(){
+        this.router.navigate(['/innkeeper/quans/' + this.idquan]);
+    }
     edit(name: string, numberpeople: number, priceperhour:number){
-        
         Swal.fire({
             title: "bạn có muốn thay đổi thông tin của sân này hay không?",
             showCancelButton: true,
@@ -110,8 +111,6 @@ export class EditSanByInnkeepeComponent implements OnInit {
 
                     }
                 })
-
-
             }
         })
     }
