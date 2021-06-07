@@ -33,6 +33,8 @@ export class DashboardListquansComponent implements OnInit {
         this.dashboardService.getListQuansChoUser().subscribe(data=>{
             if(data.status){
                 this.quans=data.quans;
+                console.log(this.quans);
+                
                 for (let i = 0; i < this.quans.length; i++) {
                     this.mangreview[i]=this.taomotmangreview(Math.round(this.quans[i].review))                  
                 }

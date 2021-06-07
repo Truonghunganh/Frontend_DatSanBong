@@ -46,14 +46,9 @@ export class AuthService {
     }
 
     checkTokenUser(): Observable<any>{
-        console.log(this.appCommonService.getToken());
-        console.log(this.appCommonService.httpOptions);
         
         return this.http.get<any>(environment.url + '/api/v1/checkTokenUser',this.appCommonService.httpOptions).pipe(
             tap(data => {
-                console.log(data);
-                console.log(this.appCommonService.getToken());
-                
                 of(data);
             }),
             catchError(this.appCommonService.errorHandler)
@@ -62,7 +57,6 @@ export class AuthService {
     login(user : User): Observable<any>{
         return this.http.post<any>(environment.url + '/api/v1/login', user, this.appCommonService.httpOptions).pipe(
             tap(data=>{
-                console.log(data);
                 if(data.status){
                     this.appCommonService.setToken(data.user.token);   
                 }
@@ -72,7 +66,6 @@ export class AuthService {
         )
     }
     Register(user: User1): Observable<any> {
-       console.log(user);
        return this.http.post<any>(environment.url + '/api/v1/register', user).pipe(
             tap(data => {
                 of(data);
